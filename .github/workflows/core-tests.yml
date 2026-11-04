@@ -1,0 +1,21 @@
+name: Portable core tests
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+permissions:
+  contents: read
+
+jobs:
+  core:
+    runs-on: macos-latest
+    steps:
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4
+      - name: Run portable Swift tests
+        run: swift test --package-path ipad
+      - name: Check project generation
+        run: |
+          python3 ipad/scripts/generate-project.py
+          plutil -lint ipad/NomadPad.xcodeproj/project.pbxproj

@@ -1,0 +1,9 @@
+{
+  "project": "Crosstalk-Solutions/project-nomad-maps",
+  "commit": "5b444051914fbf4960be2e64c0fb11f507db7efd",
+  "archive_url": "https://raw.githubusercontent.com/Crosstalk-Solutions/project-nomad-maps/5b444051914fbf4960be2e64c0fb11f507db7efd/base-assets.tar.gz",
+  "archive_sha256": "93181e170120fbb32d00ee1cd00c2f79a9c771e29573023bac54f512f80be370",
+  "maplibre_gl": "4.7.1",
+  "pmtiles": "4.4.0",
+  "protomaps_basemaps": "5.7.0"
+}

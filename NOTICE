@@ -1,0 +1,25 @@
+NomadPad
+Independent native iPad adaptation of Project NOMAD.
+
+Upstream Project NOMAD
+Copyright 2024-2026 Crosstalk Solutions LLC
+https://github.com/Crosstalk-Solutions/project-nomad
+Upstream baseline: 54ee30a44902e5c252b477f8685c26ec3064ab72
+Upstream license: Apache License, Version 2.0 (see LICENSE).
+
+This repository adds a separate Swift/SwiftUI implementation, native storage and
+engines, offline web integrations, test harnesses and dependency preparation
+scripts. It does not contain the upstream Linux/server application.
+
+Original native source contributed to this project is licensed under Apache-2.0.
+Retained third-party source, fonts, icons and generated dependencies are governed
+by their own licenses; see docs/LICENSING.md, ipad/DEPENDENCIES.md,
+ipad/WEB_TOOLS.md and the notices adjacent to each retained upstream file.
+The compiled app must not be described as Apache-only.
+
+Public-source packaging changes include standalone documentation, a generated
+unsigned Xcode project with an independent default bundle identifier, and
+exclusion of private device reports, downloaded content and build products.
+
+Project NOMAD and third-party names are used to describe provenance and
+compatibility. No trademark rights or endorsement are granted or implied.

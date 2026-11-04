@@ -1,0 +1,19 @@
+{
+  "spec_version": "2026-11-03",
+  "title": "Small local AI model",
+  "source_url": "https://huggingface.co/Qwen/Qwen2.5-0.5B-Instruct-GGUF",
+  "options": [
+    {
+      "id": "qwen25-05b-q4km",
+      "name": "Qwen2.5 0.5B Instruct · Q4_K_M",
+      "description": "Small multilingual text model published by Qwen, Apache 2.0. A modest starting point for local inference and hardware testing; it has limited knowledge and reasoning quality. Includes Arabic and English support. Import the completed file in Local AI Models; no cloud account is required.",
+      "url": "https://huggingface.co/Qwen/Qwen2.5-0.5B-Instruct-GGUF/resolve/9217f5db79a29953eb74d5343926648285ec7e67/qwen2.5-0.5b-instruct-q4_k_m.gguf",
+      "source_url": "https://huggingface.co/Qwen/Qwen2.5-0.5B-Instruct-GGUF",
+      "size_bytes": 491400032,
+      "size_mb": 491.400032,
+      "sha256": "74a4da8c9fdbcd15bd1f6d01d621410d31c6fc00986f5eb687824e7b93d7a9db",
+      "version": "Publisher revision 9217f5db79a2",
+      "format": "gguf"
+    }
+  ]
+}

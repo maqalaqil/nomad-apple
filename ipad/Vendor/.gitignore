@@ -1,0 +1,5 @@
+*
+!.gitignore
+!fetch-corekiwix.sh
+!fetch-llama.sh
+!README.md

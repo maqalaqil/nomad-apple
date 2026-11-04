@@ -1,0 +1,8 @@
+.build/
+.swiftpm/
+.module-cache/
+DerivedData/
+*DerivedData/
+*.xcuserstate
+xcuserdata/
+artifacts/

@@ -1,0 +1,13 @@
+{
+  "project": "gchq/CyberChef",
+  "version": "v11.5.0",
+  "source_commit": "8cd426dd4f40f1423912d5fad91b578a86a65112",
+  "release_url": "https://github.com/gchq/CyberChef/releases/tag/v11.5.0",
+  "archive_url": "https://github.com/gchq/CyberChef/releases/download/v11.5.0/CyberChef_8cd426dd4f40f1423912d5fad91b578a86a65112.zip",
+  "archive_sha256": "f6478925d3eaa16ec08626a85f5b85eed10d531a5e18700615fed7ecb024cccf",
+  "archive_bytes": 83125922,
+  "entry_point": "CyberChef_v11.5.0.html",
+  "license_url": "https://raw.githubusercontent.com/gchq/CyberChef/v11.5.0/LICENSE",
+  "license_sha256": "58d1e17ffe5109a7ae296caafcadfdbe6a7d176f0bc4ab01e12a689b0499d8bd",
+  "license": "Apache-2.0"
+}

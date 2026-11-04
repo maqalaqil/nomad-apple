@@ -1,0 +1,21 @@
+{
+  "spec_version": "2026-11-03",
+  "title": "Worldwide maps",
+  "source_url": "https://source.coop/protomaps/openstreetmap/v4.pmtiles",
+  "verification_method": "Official Protomaps mirror linked by its download documentation. Header and metadata were fetched with bounded HTTPS byte-range requests on November 3, 2026. Content-Range reports the exact total bytes. PMTiles v3, vector tiles, zooms 0–15, compatible kind-based Protomaps layers. The complete archive was not downloaded or hashed during catalog verification.",
+  "options": [
+    {
+      "id": "world-streets-v4",
+      "name": "Worldwide street map · all countries",
+      "description": "One worldwide OpenStreetMap-derived basemap, zoom levels 0–15, with roads, place labels, buildings and land features. This is a street basemap, not satellite imagery, nautical charts, every trail or a routing database. OSM coverage varies. Importing currently needs temporary space for another copy; remove the downloaded copy only after verifying the map import.",
+      "url": "https://data.source.coop/protomaps/openstreetmap/v4.pmtiles",
+      "source_url": "https://source.coop/protomaps/openstreetmap/v4.pmtiles",
+      "size_bytes": 134812420554,
+      "size_mb": 134812.420554,
+      "version": "Mirror modified 2026-03-31 · Protomaps v4",
+      "etag": "9e09dd251e816c0ea9208e1e34c28eba-2572",
+      "checksum_note": "No SHA-256 is published for this mirror. The multipart ETag is not a file checksum. Exact length and PMTiles structure are checked; cryptographic integrity is not established.",
+      "format": "pmtiles"
+    }
+  ]
+}

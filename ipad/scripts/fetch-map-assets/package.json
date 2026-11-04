@@ -1,0 +1,13 @@
+{
+  "name": "nomad-offline-pmtiles",
+  "private": true,
+  "version": "1.0.0",
+  "type": "module",
+  "scripts": { "build": "node build.mjs" },
+  "dependencies": {
+    "maplibre-gl": "4.7.1",
+    "pmtiles": "4.4.0",
+    "@protomaps/basemaps": "5.7.0"
+  },
+  "devDependencies": { "esbuild": "0.25.12" }
+}

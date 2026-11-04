@@ -1,0 +1,43 @@
+// Generated directly from collections/conditions.json at upstream 54ee30a.
+// These are search terms, not treatment recommendations or clinical conclusions.
+enum DrugConditionCatalog {
+    static let version = "2026-06-07"
+    static let conditions: [DrugCondition] = [
+        DrugCondition(id: "pain", label: "Pain", category: "Pain, fever & inflammation", searchTerms: ["pain", "aches", "minor aches", "pain relief", "analgesic"]),
+        DrugCondition(id: "headache", label: "Headache", category: "Pain, fever & inflammation", searchTerms: ["headache", "migraine", "head pain", "tension headache"]),
+        DrugCondition(id: "muscle-joint-pain", label: "Muscle & joint pain", category: "Pain, fever & inflammation", searchTerms: ["muscular aches", "muscle aches", "backache", "arthritis", "joint pain", "minor pain of arthritis"]),
+        DrugCondition(id: "fever", label: "Fever", category: "Pain, fever & inflammation", searchTerms: ["fever", "reduces fever", "fever reducer", "temporarily reduces fever"]),
+        DrugCondition(id: "menstrual-cramps", label: "Menstrual cramps", category: "Pain, fever & inflammation", searchTerms: ["menstrual cramps", "menstrual pain", "period pain", "premenstrual"]),
+        DrugCondition(id: "cough", label: "Cough", category: "Cold, cough & allergy", searchTerms: ["cough", "cough suppressant", "coughing", "controls cough"]),
+        DrugCondition(id: "nasal-congestion", label: "Nasal congestion", category: "Cold, cough & allergy", searchTerms: ["nasal congestion", "stuffy nose", "sinus congestion", "decongestant", "nasal decongestant"]),
+        DrugCondition(id: "sore-throat", label: "Sore throat", category: "Cold, cough & allergy", searchTerms: ["sore throat", "sore mouth", "minor sore throat", "throat pain"]),
+        DrugCondition(id: "common-cold", label: "Common cold", category: "Cold, cough & allergy", searchTerms: ["common cold", "cold symptoms", "cold", "flu symptoms"]),
+        DrugCondition(id: "allergic-reaction", label: "Allergies & allergic reactions", category: "Cold, cough & allergy", searchTerms: ["allergy", "allergic reactions", "hay fever", "antihistamine", "runny nose", "sneezing", "itchy watery eyes"]),
+        DrugCondition(id: "heartburn", label: "Heartburn", category: "Stomach & digestion", searchTerms: ["heartburn", "acid indigestion", "acid reducer", "antacid", "sour stomach"]),
+        DrugCondition(id: "indigestion", label: "Indigestion & upset stomach", category: "Stomach & digestion", searchTerms: ["indigestion", "upset stomach", "gas", "bloating", "fullness", "antacid"]),
+        DrugCondition(id: "nausea-vomiting", label: "Nausea & vomiting", category: "Stomach & digestion", searchTerms: ["nausea", "vomiting", "upset stomach associated with nausea"]),
+        DrugCondition(id: "diarrhea", label: "Diarrhea", category: "Stomach & digestion", searchTerms: ["diarrhea", "antidiarrheal", "loose stools", "traveler’s diarrhea"]),
+        DrugCondition(id: "constipation", label: "Constipation", category: "Stomach & digestion", searchTerms: ["constipation", "laxative", "irregularity", "occasional constipation", "stool softener"]),
+        DrugCondition(id: "motion-sickness", label: "Motion sickness", category: "Stomach & digestion", searchTerms: ["motion sickness", "travel sickness", "seasickness", "car sickness"]),
+        DrugCondition(id: "gas", label: "Gas & bloating", category: "Stomach & digestion", searchTerms: ["gas", "bloating", "flatulence", "antigas", "pressure"]),
+        DrugCondition(id: "wounds-cuts", label: "Wounds & cuts", category: "Skin & wounds", searchTerms: ["minor cuts", "scrapes", "wounds", "first aid antiseptic", "first aid to help prevent infection", "abrasions"]),
+        DrugCondition(id: "burns", label: "Burns", category: "Skin & wounds", searchTerms: ["burns", "minor burns", "sunburn", "scald", "minor burn"]),
+        DrugCondition(id: "insect-bites-stings", label: "Insect bites & stings", category: "Skin & wounds", searchTerms: ["insect bites", "insect stings", "bug bites", "bee sting", "itching from insect bites"]),
+        DrugCondition(id: "skin-rash-itch", label: "Rash & itching", category: "Skin & wounds", searchTerms: ["itching", "rash", "skin irritation", "itchy skin", "minor skin irritations", "eczema"]),
+        DrugCondition(id: "poison-ivy", label: "Poison ivy & plant rashes", category: "Skin & wounds", searchTerms: ["poison ivy", "poison oak", "poison sumac", "rashes due to poison ivy"]),
+        DrugCondition(id: "fungal-infection", label: "Athlete’s foot & ringworm", category: "Skin & wounds", searchTerms: ["athlete’s foot", "ringworm", "jock itch", "antifungal", "fungal infection", "tinea"]),
+        DrugCondition(id: "dry-skin", label: "Dry & chapped skin", category: "Skin & wounds", searchTerms: ["dry skin", "chapped skin", "chapped lips", "skin protectant", "cracked skin"]),
+        DrugCondition(id: "acne", label: "Acne", category: "Skin & wounds", searchTerms: ["acne", "pimples", "blackheads", "acne treatment"]),
+        DrugCondition(id: "eye-irritation", label: "Eye irritation & dryness", category: "Eyes, ears & mouth", searchTerms: ["eye irritation", "dry eyes", "red eyes", "eye redness", "itchy eyes", "lubricant eye"]),
+        DrugCondition(id: "earache", label: "Earache & ear wax", category: "Eyes, ears & mouth", searchTerms: ["earache", "ear wax", "earwax removal", "ear pain", "swimmer’s ear"]),
+        DrugCondition(id: "canker-sores", label: "Canker & cold sores", category: "Eyes, ears & mouth", searchTerms: ["canker sores", "cold sores", "mouth sores", "fever blisters", "oral pain"]),
+        DrugCondition(id: "toothache", label: "Toothache", category: "Eyes, ears & mouth", searchTerms: ["toothache", "tooth pain", "dental pain", "oral analgesic"]),
+        DrugCondition(id: "sleeplessness", label: "Sleeplessness", category: "Sleep, stress & general", searchTerms: ["sleeplessness", "insomnia", "sleep aid", "difficulty falling asleep", "nighttime"]),
+        DrugCondition(id: "dehydration", label: "Dehydration", category: "Sleep, stress & general", searchTerms: ["dehydration", "oral rehydration", "electrolyte", "fluid loss", "replaces electrolytes"]),
+        DrugCondition(id: "hemorrhoids", label: "Hemorrhoids", category: "Sleep, stress & general", searchTerms: ["hemorrhoids", "hemorrhoidal", "anal itching", "rectal"]),
+        DrugCondition(id: "yeast-infection", label: "Vaginal yeast infection", category: "Infections (OTC-treatable)", searchTerms: ["vaginal yeast infection", "yeast infection", "vaginal antifungal", "candidiasis"]),
+        DrugCondition(id: "pinworm", label: "Pinworm", category: "Infections (OTC-treatable)", searchTerms: ["pinworm", "pinworm infection", "pinworm treatment"]),
+        DrugCondition(id: "cold-sore-lip", label: "Chapped & sun-protected lips", category: "Sleep, stress & general", searchTerms: ["lip protectant", "chapped lips", "sunburn protection lips", "lip balm"]),
+        DrugCondition(id: "eye-allergy", label: "Eye allergies", category: "Eyes, ears & mouth", searchTerms: ["eye allergy", "itchy eyes due to allergies", "ocular itching", "allergic conjunctivitis"]),
+    ]
+}

@@ -1,0 +1,12 @@
+{
+  "project": "CorentinTh/it-tools",
+  "version": "v2024.10.22-7ca5933",
+  "release_url": "https://github.com/CorentinTh/it-tools/releases/tag/v2024.10.22-7ca5933",
+  "archive_url": "https://github.com/CorentinTh/it-tools/releases/download/v2024.10.22-7ca5933/it-tools-2024.10.22-7ca5933.zip",
+  "archive_sha256": "eef276d675db6053bdc65cd8482a566785561c70eed5035a0e05b0e627b0989d",
+  "source_url": "https://codeload.github.com/CorentinTh/it-tools/tar.gz/refs/tags/v2024.10.22-7ca5933",
+  "source_sha256": "462f31140ef535ade19aa8c808084a5e13e58e4f0391850acb326cdb9244b759",
+  "license_url": "https://raw.githubusercontent.com/CorentinTh/it-tools/v2024.10.22-7ca5933/LICENSE",
+  "license_sha256": "8b1ba204bb69a0ade2bfcf65ef294a920f6bb361b317dba43c7ef29d96332b9b",
+  "license": "GPL-3.0"
+}

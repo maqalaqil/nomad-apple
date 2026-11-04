@@ -1,0 +1,123 @@
+{
+  "kolibri_commit": "da32925bce3cd216c4c5c0ecb7429314926f50c5",
+  "perseus": "78.2.0",
+  "perseus_core": "28.2.0",
+  "perseus_score": "8.11.7",
+  "static_assets": [
+    {
+      "file": "protractor.svg",
+      "url": "https://cdn.kastatic.org/images/perseus/protractor.svg",
+      "sha256": "721fe3676e2a82485cfe483f53c75d9af1604776c1b01bee1e0eb68cfba3d197"
+    },
+    {
+      "file": "protractor-legacy.png",
+      "url": "https://ka-perseus-graphie.s3.amazonaws.com/e9d032f2ab8b95979f674fbfa67056442ba1ff6a.png",
+      "sha256": "284ca3b4bc760c5ad26a1d56ce2d3091b967d12ba4f14bbe7af80c6ea305a250"
+    },
+    {
+      "file": "MathJax_Main-Regular.woff",
+      "url": "https://cdn.kastatic.org/fonts/mathjax/MathJax_Main-Regular.woff",
+      "sha256": "1cb1c39ea642f26a4dfed230b4aea1c3c218689421f6e9c0a7c1811693c4fa07"
+    },
+    {
+      "file": "3d68e7718498475f53b206c2ab285626baf8857e.png",
+      "url": "https://ka-perseus-graphie.s3.amazonaws.com/3d68e7718498475f53b206c2ab285626baf8857e.png",
+      "sha256": "c4e2526efdea269570e964d33efd1e82c8b0874fe95cdd5e19b7109e15682e39"
+    },
+    {
+      "file": "67aaf581e6d9ef9038c10558a1f70ac21c11c9f8.png",
+      "url": "https://ka-perseus-graphie.s3.amazonaws.com/67aaf581e6d9ef9038c10558a1f70ac21c11c9f8.png",
+      "sha256": "84af40e669e3352f3ad5d1be7beaf78d2aeb891e496218b460b5b9b4dec5cc15"
+    },
+    {
+      "file": "7db80d23c35214f98659fe1cf0765811c1bbfbba.png",
+      "url": "https://ka-perseus-graphie.s3.amazonaws.com/7db80d23c35214f98659fe1cf0765811c1bbfbba.png",
+      "sha256": "be09ceaa91cf20f2d817016cb024bde04dcd01652c01916d18ae484b7c42f0db"
+    },
+    {
+      "file": "8256a630175a0cb1d11de223d6de0266daf98721.png",
+      "url": "https://ka-perseus-graphie.s3.amazonaws.com/8256a630175a0cb1d11de223d6de0266daf98721.png",
+      "sha256": "fb314ca60615681ed487e5adad04beb5fb09591b1c1829a3c5077d35f30d1e55"
+    },
+    {
+      "file": "9cbfad55525e3ce755a31a631b074670a5dad611.png",
+      "url": "https://ka-perseus-graphie.s3.amazonaws.com/9cbfad55525e3ce755a31a631b074670a5dad611.png",
+      "sha256": "81d5e63d3b596903d49367feac4e0344a9fdf488fe61c63c7192f713360e0195"
+    },
+    {
+      "file": "e23d36e6fc29ee37174e92c9daba2a66677128ab.png",
+      "url": "https://ka-perseus-graphie.s3.amazonaws.com/e23d36e6fc29ee37174e92c9daba2a66677128ab.png",
+      "sha256": "bb1254005071625fcbfced3172719faaaebd3e36df02cbfd1aa8493cd6b8734e"
+    },
+    {
+      "file": "f6491e99d34af34d924bfe0231728ad912068dc3.png",
+      "url": "https://ka-perseus-graphie.s3.amazonaws.com/f6491e99d34af34d924bfe0231728ad912068dc3.png",
+      "sha256": "eee89dde7d3c1a259f8867e6ca1a4f1273d9e2b08fc3806f9d8be9f22654cbec"
+    }
+  ],
+  "integration_sources": [
+    {
+      "file": "scoring.js",
+      "url": "https://raw.githubusercontent.com/learningequality/kolibri/da32925bce3cd216c4c5c0ecb7429314926f50c5/kolibri/plugins/perseus_viewer/frontend/scoring.js",
+      "sha256": "20df9310f31e6aa239439584fca4f3e6b4edc67fcc1c2c715e8345579bf92a60"
+    },
+    {
+      "file": "numericResponses.js",
+      "url": "https://raw.githubusercontent.com/learningequality/kolibri/da32925bce3cd216c4c5c0ecb7429314926f50c5/kolibri/plugins/perseus_viewer/frontend/numericResponses.js",
+      "sha256": "93c6045859941fffd90d5a04362bf83dbcb5a4e2c0e2bbbf39a99cb12a5d4fb5"
+    },
+    {
+      "file": "translationUtils.js",
+      "url": "https://raw.githubusercontent.com/learningequality/kolibri/da32925bce3cd216c4c5c0ecb7429314926f50c5/kolibri/plugins/perseus_viewer/frontend/translationUtils.js",
+      "sha256": "94823a39f1a45daceb96d3c2e8aca972c27436ae0eff23ea035d27fa493841be"
+    },
+    {
+      "file": "translator.js",
+      "url": "https://raw.githubusercontent.com/learningequality/kolibri/da32925bce3cd216c4c5c0ecb7429314926f50c5/kolibri/plugins/perseus_viewer/frontend/translator.js",
+      "sha256": "97a437ab43b46a65b8a840a06cc302e9918ee524097e8887e502bace8d544fa9"
+    },
+    {
+      "file": "Tex.js",
+      "url": "https://raw.githubusercontent.com/learningequality/kolibri/da32925bce3cd216c4c5c0ecb7429314926f50c5/kolibri/plugins/perseus_viewer/frontend/views/Tex.js",
+      "sha256": "4c7dc11187472d14857d67228034954c7978e9dc7ad88c639f797961068e11d4"
+    },
+    {
+      "file": "buildPerseus.js",
+      "url": "https://raw.githubusercontent.com/learningequality/kolibri/da32925bce3cd216c4c5c0ecb7429314926f50c5/kolibri/plugins/perseus_viewer/buildPerseus.js",
+      "sha256": "60955140ab5c1bf8b9bda5ff574ae901426104696bed2e25a718cbf2b1fec662"
+    },
+    {
+      "file": "sorter-item.json",
+      "url": "https://raw.githubusercontent.com/learningequality/kolibri/da32925bce3cd216c4c5c0ecb7429314926f50c5/kolibri/plugins/perseus_viewer/frontend/__tests__/fixtures/sorter-item.json",
+      "sha256": "d329b6f381996cffde1fcb1ccb5eab91e1e77c53bc749a931ba5686c1e051bdc"
+    },
+    {
+      "file": "LICENSE",
+      "url": "https://raw.githubusercontent.com/learningequality/kolibri/da32925bce3cd216c4c5c0ecb7429314926f50c5/LICENSE",
+      "sha256": "3c056b34a4762a9a33aad668c5f26ed628186e4435143c00e044c5ebd726c57e"
+    },
+    {
+      "file": "localeNumbers.js",
+      "url": "https://raw.githubusercontent.com/learningequality/kolibri/da32925bce3cd216c4c5c0ecb7429314926f50c5/packages/kolibri-common/utils/localeNumbers.js",
+      "sha256": "72eec825adb88eddd847624748e446aac1ccadc6d72c53e172c1c0c0023e4a2d"
+    },
+    {
+      "file": "numeralNormalization.js",
+      "url": "https://raw.githubusercontent.com/learningequality/kolibri/da32925bce3cd216c4c5c0ecb7429314926f50c5/packages/kolibri-common/utils/numeralNormalization.js",
+      "sha256": "8979b8d449ff083f16e9c8cc3f2afb0288b50ea92b13264268f36a095f420cae"
+    },
+    {
+      "file": "useKeypad.js",
+      "url": "https://raw.githubusercontent.com/learningequality/kolibri/da32925bce3cd216c4c5c0ecb7429314926f50c5/packages/kolibri-common/composables/useKeypad.js",
+      "sha256": "5b802af8bd84d5c632ae67e1321395f13abbd2b90405c34afb3ec0c5983a6aee"
+    }
+  ],
+  "source_archives": [
+    {
+      "file": "mathquill-v1.0.3-source.tar.gz",
+      "url": "https://codeload.github.com/Khan/mathquill/tar.gz/refs/tags/v1.0.3",
+      "sha256": "1f839fcb012c1596f254371e7eaeec06d3db6859c51fd3578f38d03aecf924ba",
+      "license_path": "mathquill-1.0.3/LICENSE.txt"
+    }
+  ]
+}

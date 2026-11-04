@@ -1,0 +1,53 @@
+{
+  "spec_version": "2026-11-03",
+  "verified_at": "2026-11-04T00:56:40Z",
+  "title": "English Wikipedia",
+  "language": "en",
+  "source_url": "https://library.kiwix.org/catalog/v2/entries?lang=eng&category=wikipedia&count=1000",
+  "directory_url": "https://download.kiwix.org/zim/wikipedia/",
+  "verification_method": "Latest all-article editions listed by official Kiwix OPDS at verification time. Exact byte sizes and SHA-256 hashes come from the official file Metalink records and sizes were confirmed by HTTPS HEAD requests. Archive contents were not downloaded during catalog verification.",
+  "options": [
+    {
+      "id": "all-maxi",
+      "name": "English Wikipedia · full articles with images",
+      "description": "Full-article English Wikipedia collection packaged by Kiwix, with selected article images. Does not include all Wikimedia media or video.",
+      "size_bytes": 127418087648,
+      "size_mb": 127418.087648,
+      "url": "https://download.kiwix.org/zim/wikipedia/wikipedia_en_all_maxi_2026-08.zim",
+      "version": "2026-08",
+      "sha256": "34162d18b9f96f494eac48a73a309c72e0bc95d85f76be405d0f5de795854aa6",
+      "source_url": "https://download.kiwix.org/zim/wikipedia/wikipedia_en_all_maxi_2026-08.zim.meta4",
+      "metadata_url": "https://download.kiwix.org/zim/wikipedia/wikipedia_en_all_maxi_2026-08.zim.meta4",
+      "language": "en",
+      "format": "zim"
+    },
+    {
+      "id": "all-nopic",
+      "name": "English Wikipedia · full articles, no images",
+      "description": "Full-article English Wikipedia collection packaged by Kiwix without article images or video. Saves space compared with the image edition.",
+      "size_bytes": 52690706555,
+      "size_mb": 52690.706555,
+      "url": "https://download.kiwix.org/zim/wikipedia/wikipedia_en_all_nopic_2026-06.zim",
+      "version": "2026-06",
+      "sha256": "441a56d9e05b2d98f8ae9acb7986a513ed47904d73852c92dc6b7d50baa122e5",
+      "source_url": "https://download.kiwix.org/zim/wikipedia/wikipedia_en_all_nopic_2026-06.zim.meta4",
+      "metadata_url": "https://download.kiwix.org/zim/wikipedia/wikipedia_en_all_nopic_2026-06.zim.meta4",
+      "language": "en",
+      "format": "zim"
+    },
+    {
+      "id": "all-mini",
+      "name": "English Wikipedia · compact introductions",
+      "description": "Compact English Wikipedia collection with introductory article text. Omits the full article details, images, and video.",
+      "size_bytes": 14386799064,
+      "size_mb": 14386.799064,
+      "url": "https://download.kiwix.org/zim/wikipedia/wikipedia_en_all_mini_2026-09.zim",
+      "version": "2026-09",
+      "sha256": "350d8956ee3d7abe2839c464c3a983f93d6934a16c7f04b10715b49439dfd349",
+      "source_url": "https://download.kiwix.org/zim/wikipedia/wikipedia_en_all_mini_2026-09.zim.meta4",
+      "metadata_url": "https://download.kiwix.org/zim/wikipedia/wikipedia_en_all_mini_2026-09.zim.meta4",
+      "language": "en",
+      "format": "zim"
+    }
+  ]
+}

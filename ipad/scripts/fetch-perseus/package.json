@@ -1,0 +1,27 @@
+{
+  "name": "nomad-offline-perseus",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "build": "node build.mjs"
+  },
+  "dependencies": {
+    "@internationalized/number": "3.6.9",
+    "@khanacademy/keypad-context": "3.2.65",
+    "@khanacademy/math-input": "26.4.37",
+    "@khanacademy/mathjax-renderer": "3.0.0",
+    "@khanacademy/perseus": "78.2.0",
+    "@khanacademy/perseus-core": "28.2.0",
+    "@khanacademy/perseus-score": "8.11.7",
+    "@khanacademy/wonder-blocks-core": "12.4.4",
+    "@khanacademy/wonder-blocks-tokens": "16.8.0",
+    "intl-messageformat": "10.7.16",
+    "mathjax-full": "3.2.2",
+    "react": "18.2.0",
+    "react-dom": "18.2.0"
+  },
+  "devDependencies": {
+    "esbuild": "0.25.12"
+  }
+}

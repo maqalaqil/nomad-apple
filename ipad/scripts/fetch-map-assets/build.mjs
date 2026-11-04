@@ -1,0 +1,14 @@
+import {build} from 'esbuild';
+import fs from 'node:fs/promises';
+import path from 'node:path';
+import {fileURLToPath} from 'node:url';
+const root=path.dirname(fileURLToPath(import.meta.url));
+const output=path.resolve(root,'../../Resources/WebTools/Maps');
+await fs.mkdir(output,{recursive:true});
+await build({entryPoints:[path.join(root,'main.js')],bundle:true,minify:true,format:'iife',platform:'browser',target:['safari18'],outfile:path.join(output,'main.js'),legalComments:'linked',define:{'process.env.NODE_ENV':'"production"'}});
+const policy="default-src 'self' nomad-map: blob: data:; script-src 'self' nomad-map: blob: 'unsafe-eval'; style-src 'self' nomad-map: 'unsafe-inline'; img-src 'self' nomad-map: blob: data:; connect-src 'self' nomad-map: blob: data:; worker-src 'self' nomad-map: blob:; object-src 'none'; form-action 'none'; base-uri 'none'";
+await fs.writeFile(path.join(output,'index.html'),`<!doctype html><html><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1"><meta http-equiv="Content-Security-Policy" content="${policy}"><title>Offline PMTiles</title><link rel="stylesheet" href="main.css"></head><body><div id="map"></div><script src="main.js"></script></body></html>`);
+await fs.mkdir(path.join(output,'licenses'),{recursive:true});
+await fs.copyFile(path.join(root,'node_modules/maplibre-gl/LICENSE.txt'),path.join(output,'licenses/MapLibre.txt'));
+for(const name of ['PMTiles','Basemaps','Icons']) await fs.copyFile(path.join(root,`LICENSE.${name}`),path.join(output,`licenses/${name}.txt`));
+console.log('Built offline PMTiles frontend.');
