@@ -14,10 +14,30 @@ On November 4, 2026, all **34 portable Swift core tests passed with zero failure
 
 - 34 portable core tests passed, covering local storage, notes, retrieval filtering and safe internal-download imports.
 - Eight simulator UI tests passed in one integrated run. Two targeted Notes/Media follow-ups passed after later folder handling changes; these are distinct runs.
-- Engine regression results included 140 backup, 76 reference, 71 PDF, 46 inventory, 38 conversation, 18 translation-state/variant, 10 storage audit, eight retrieval-freshness and eight callback-deadline checks. Additional suites and their commands are in [Tests](../ipad/Tests/README.md).
+- Engine regression results included 140 backup, 76 reference, 71 PDF, 46 inventory, 38 conversation, 18 translation-state/variant, 10 storage audit, eight retrieval-freshness and eight callback-deadline checks. Additional suites and their commands are in [Tests](../apple/Tests/README.md).
 - A physical M2 iPad on iPadOS 26.5 completed local Apple Foundation Models and GGUF/Metal generation, semantic retrieval, small ZIM access, labeled local-map rendering and an isolated backup activation/rollback fixture.
 - A 19.10 GB Arabic Wikipedia transfer passed its publisher SHA-256 verification, was saved in the library and was reported to open successfully by the tester. The tester also reported successful local AI use.
 - A synthetic 19,095,710,684-byte recovery test exercised the production download verifier with approximately 3.75 MiB RSS growth. Other streaming regression checks cover course assets, ZIM resources, reference imports and backup copying.
+
+## Native Apple platform port
+
+The `apple/` source tree and generated **NomadApple** project now target iPhone and iPad on iOS/iPadOS 26+, and native Mac on macOS 26+. Mac Catalyst is not used. Existing bundle and persisted storage identifiers remain unchanged to protect upgrade continuity. The app uses a single workspace window on Mac and explicitly disables multiple iOS/iPadOS scenes; independent windows could otherwise race stores that retain manifest snapshots.
+
+The unsigned physical iOS build passed with device families `[1, 2]` and an arm64 llama framework. The iOS simulator build also passed. All nine UI tests passed on each of the iPhone and iPad simulators in separate complete runs, covering inventory, backups, bundled catalogs, conversations, dashboard navigation, files, text tools and note/media persistence. Mac dashboard navigation, Base64 conversion and note persistence across relaunch passed as three selected workflows in separate runs after adapting the test selectors to AppKit accessibility.
+
+After disabling multiple iOS/iPadOS scenes, the final device and simulator property lists were checked for `UIApplicationSupportsMultipleScenes = false`, both builds passed again, and targeted launch/dashboard/catalog tests passed on both iPhone and iPad simulators.
+
+The final native Mac Debug build passed for both arm64 and x86_64. Its local ad-hoc signature passed deep/strict verification. Normal app entitlements include App Sandbox, selected-file access and client networking; verification used the normal app build without XCTest's temporary filesystem exceptions. Execution was on Apple silicon; Intel hardware is not validated. This local signature is not Developer ID notarization or App Store distribution signing.
+
+Inside the normally sandboxed Mac app, built-in diagnostics completed local Foundation Models and GGUF generation, CPU/storage checks, sentence embeddings, hardlink-backed import, real ZIM access, PMTiles rendering and isolated backup activation/rollback. English/Arabic translation execution was skipped because those system language models were not installed on this Mac. Networking stayed enabled; these checks do not establish disconnected cold-launch acceptance.
+
+Repeated port checks include 34 portable core tests, 140 backup, 76 reference, 71 PDF, 46 inventory and 433 vault engine checks. Production Mac WebKit checks passed for EPUB search/position persistence (12), HTML5 courses (7), Perseus (7), and bundled-tool conversion/network blocking/blob export. The course engine suite passed 78 checks. Native media playback/storage and Files safety regressions also passed. These isolated fixtures do not certify every document, codec or course package.
+
+The Mac drawing/private-pasteboard harness passed 71 checks, including editable drawing round trips, nonblank PNG export, clipboard expiration ownership, and eraser geometry with curves, transforms, widths, masks and zoom. Signed user authentication in the Mac vault, native file-provider dialogs and long-session pointer/pen behavior still need acceptance testing.
+
+The pinned native Mac GGUF framework generated tokens using both CPU and Metal in separate smoke runs, and CoreKiwix opened, read and searched a small real ZIM fixture. The iOS simulator has no GGUF inference slice. Neither a compiler pass nor a short generation demonstrates model quality or memory fit on every supported device.
+
+All prepared offline bundles passed their integrity checks: CyberChef (134 files), IT Tools (286), Excalidraw (243), Maps (1,078), and Perseus (388). Dependency preparation requires internet access or a complete verified cache; prepared tools run from bundled assets.
 
 ## Still unverified
 
@@ -31,7 +51,7 @@ On November 4, 2026, all **34 portable Swift core tests passed with zero failure
 ## Reproduce
 
 ```sh
-swift test --package-path ipad
+swift test --package-path apple
 ```
 
-For app/UI tests, prepare dependencies and generate the project as described in the [build guide](../ipad/README.md), then select an installed iPad simulator in the commands in [Tests](../ipad/Tests/README.md). GGUF inference requires a physical iPad with the pinned framework. The repository's CI checks portable source; it does not certify physical offline operation.
+For app/UI tests, prepare dependencies and generate the project as described in the [build guide](../apple/README.md), then select an installed iPhone/iPad simulator or native Mac destination using [Tests](../apple/Tests/README.md). GGUF inference requires a compatible physical iPhone/iPad or Mac with the pinned framework. The repository's CI checks portable source; it does not certify physical offline operation.

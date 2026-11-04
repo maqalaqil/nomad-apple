@@ -19,6 +19,6 @@
 .env
 .env.*
 !*.example
-/ipad/NomadPad.xcodeproj/
-/ipad/Tests/Evidence/
+/apple/*.xcodeproj/
+/apple/Tests/Evidence/
 /artifacts/

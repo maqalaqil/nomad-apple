@@ -1,5 +1,5 @@
 NOMAD Apple
-Independent native iPad adaptation of Project NOMAD.
+Independent native iPhone, iPad, and Mac adaptation of Project NOMAD.
 
 Upstream Project NOMAD
 Copyright 2024-2026 Crosstalk Solutions LLC
@@ -13,8 +13,8 @@ scripts. It does not contain the upstream Linux/server application.
 
 Original native source contributed to this project is licensed under Apache-2.0.
 Retained third-party source, fonts, icons and generated dependencies are governed
-by their own licenses; see docs/LICENSING.md, ipad/DEPENDENCIES.md,
-ipad/WEB_TOOLS.md and the notices adjacent to each retained upstream file.
+by their own licenses; see docs/LICENSING.md, apple/DEPENDENCIES.md,
+apple/WEB_TOOLS.md and the notices adjacent to each retained upstream file.
 The compiled app must not be described as Apache-only.
 
 Public-source packaging changes include standalone documentation, a generated
