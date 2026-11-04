@@ -1,4 +1,4 @@
-# NOMAD for iPad: full feature coverage ledger
+# NOMAD Apple: full feature coverage ledger
 
 Upstream baseline: `Crosstalk-Solutions/project-nomad` commit **54ee30a44902e5c252b477f8685c26ec3064ab72** (v1.35.1 release documentation). This ledger covers that checkout, not an unbounded promise to mirror future upstream additions.
 

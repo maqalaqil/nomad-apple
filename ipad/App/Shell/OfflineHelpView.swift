@@ -28,7 +28,7 @@ struct OfflineHelpView: View {
                 Text("A free Apple ID development installation expires and needs renewal through Xcode. The installed development build is not a permanent offline distribution. Preserve backups before changing installation methods.")
             }
             Section("About this build") {
-                Text("NOMAD for iPad provides native workflows and bundled local tools. Feature coverage and physical-device validation remain in progress. Linux containers, always-running servers, gated content entitlements, and unsupported radio protocols do not become available simply by opening a module.")
+                Text("NOMAD Apple provides native workflows and bundled local tools. Feature coverage and physical-device validation remain in progress. Linux containers, always-running servers, gated content entitlements, and unsupported radio protocols do not become available simply by opening a module.")
             }
         }
         .navigationTitle("Offline help")

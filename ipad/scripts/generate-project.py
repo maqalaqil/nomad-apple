@@ -86,7 +86,7 @@ project_settings = {
 }
 target_settings = {
     "PRODUCT_BUNDLE_IDENTIFIER": "io.github.maqalaqil.nomadpad", "PRODUCT_NAME": "$(TARGET_NAME)",
-    "GENERATE_INFOPLIST_FILE": "YES", "INFOPLIST_KEY_CFBundleDisplayName": "NomadPad",
+    "GENERATE_INFOPLIST_FILE": "YES", "INFOPLIST_KEY_CFBundleDisplayName": "NOMAD Apple",
     "INFOPLIST_KEY_UIApplicationSceneManifest_Generation": "YES", "INFOPLIST_KEY_UILaunchScreen_Generation": "YES",
     "INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad": "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight",
     "INFOPLIST_KEY_NSFaceIDUsageDescription": "Unlock your offline password vault.",

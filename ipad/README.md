@@ -1,4 +1,4 @@
-# NomadPad build and offline-use guide
+# NOMAD Apple build and offline-use guide
 
 An independent native iPad adaptation of Project NOMAD. This is a development preview with incomplete feature parity. See the [project overview](../README.md), [feature matrix](FEATURE_PARITY.md) and [App Store readiness](../docs/APP_STORE_READINESS.md).
 

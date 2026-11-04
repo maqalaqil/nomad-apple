@@ -1,6 +1,6 @@
-# NomadPad
+# NOMAD Apple
 
-An independent, native iPad adaptation of [Project NOMAD](https://github.com/Crosstalk-Solutions/project-nomad). Read local knowledge archives, run local AI, view offline maps, and work with documents on one iPad.
+An independent, native Apple-device adaptation of [Project NOMAD](https://github.com/Crosstalk-Solutions/project-nomad). Read local knowledge archives, run local AI, view offline maps, and work with documents on one iPad.
 
 **Development preview — not an App Store release and not full NOMAD feature parity.** This project is not affiliated with or endorsed by Crosstalk Solutions. The name is a development name; public app branding remains a release decision.
 
@@ -18,11 +18,11 @@ These are working implementations with different levels of coverage. Read the [f
 
 ## Build and run
 
-Requires macOS, Xcode with the iOS 26 SDK, Python 3.11+, and Node 22+/npm. The app targets iPadOS 26+. Apple Intelligence and local-model performance depend on the hardware and installed system models. Initial dependency preparation requires internet access.
+Requires macOS, Xcode with the iOS 26 SDK, Python 3.11+, and Node 22+/npm. The current Xcode project targets iPadOS 26+ (`TARGETED_DEVICE_FAMILY=2`). iPhone and macOS release support are not yet configured or validated. Apple Intelligence and local-model performance depend on the hardware and installed system models. Initial dependency preparation requires internet access.
 
 ```sh
-git clone https://github.com/maqalaqil/nomad-ipad.git
-cd nomad-ipad
+git clone https://github.com/maqalaqil/nomad-apple.git
+cd nomad-apple
 sh ipad/Vendor/fetch-corekiwix.sh
 sh ipad/Vendor/fetch-llama.sh
 python3 ipad/scripts/fetch-web-tools.py
@@ -33,7 +33,7 @@ python3 ipad/scripts/generate-project.py
 open ipad/NomadPad.xcodeproj
 ```
 
-Select the **NomadPad** scheme, an iPad, your development team and a bundle identifier you control. The project is generated locally and is not committed, so personal signing selections stay local. The default bundle identifier is `io.github.maqalaqil.nomadpad`; change it for your own account. A free Personal Team supports development testing, not App Store distribution. See the [build and offline-use guide](ipad/README.md).
+The app display name is **NOMAD Apple**. Existing `NomadPad` project/scheme names and the bundle identifier are retained for build and data continuity. Select the **NomadPad** scheme, an iPad, your development team and a bundle identifier you control. The project is generated locally and is not committed, so personal signing selections stay local. The default bundle identifier is `io.github.maqalaqil.nomadpad`; change it for your own account. A free Personal Team supports development testing, not App Store distribution. See the [build and offline-use guide](ipad/README.md).
 
 Portable tests do not require the downloaded frameworks or web bundles:
 

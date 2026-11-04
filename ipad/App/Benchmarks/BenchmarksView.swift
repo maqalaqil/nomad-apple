@@ -53,7 +53,7 @@ struct BenchmarksView: View {
         }
         .navigationTitle("Benchmarks")
         .onChange(of: scenePhase) { _, phase in if phase == .background { store.cancel() } }
-        .fileExporter(isPresented: $exporting, document: export, contentType: .json, defaultFilename: "nomad-ipad-benchmarks") { result in
+        .fileExporter(isPresented: $exporting, document: export, contentType: .json, defaultFilename: "nomad-apple-benchmarks") { result in
             if case .failure(let error) = result { store.error = error.localizedDescription }
         }
         .confirmationDialog("Delete this saved benchmark?", isPresented: Binding(get: { deleting != nil }, set: { if !$0 { deleting = nil } }), titleVisibility: .visible) {
