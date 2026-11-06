@@ -35,6 +35,20 @@ Resolve the scope of Apple's third-party-partner/collection definition for these
 
 Vault recovery uses Apple's AES-GCM and PBKDF2. Bundled CyberChef and IT Tools provide additional published cryptographic operations. France is excluded from the first release. Apple's questionnaire, answered for standard algorithms outside the OS and no France distribution, returned no document-upload requirement. This does not establish that the app has no encryption or settle every US classification/reporting obligation. Confirm coverage of the full bundled algorithm inventory before setting an exemption key or associating a declaration with an uploaded build. See [Apple's export documentation table](https://developer.apple.com/help/app-store-connect/reference/app-information/export-compliance-documentation-for-encryption/) and [overview](https://developer.apple.com/help/app-store-connect/manage-app-information/overview-of-export-compliance/).
 
+### Prepared encryption evidence
+
+[RELEASE_CRYPTO_INVENTORY.json](RELEASE_CRYPTO_INVENTORY.json) is generated from pinned local resources by [inventory-release-crypto.py](../apple/scripts/inventory-release-crypto.py). It identifies all 505 CyberChef catalog entries before extracting the six cryptography-related module groups and ten related operations from other modules. These groups include checksum, parsing and historical operations as well as modern encryption; a module name is not an export classification. The JSON records source hashes and the concrete IT Tools selector (AES, TripleDES, Rabbit and RC4), plus RSA key generation, bcrypt and hash/HMAC source evidence.
+
+The native vault uses Apple CryptoKit AES-256-GCM and CommonCrypto PBKDF2-HMAC-SHA256 with 600,000 iterations and a 32-byte salt. Security supplies random bytes. The prepared Excalidraw bundle's observed `crypto.subtle` call computes a SHA-1 digest; that finding is not a blanket claim about every dependency. Archive/password operations and bundled implementations still need inclusion in the final classification review.
+
+The factual questionnaire inputs are: encryption is present; it is not limited to Apple OS implementations; the release includes third-party JavaScript encryption; France is excluded. Do not convert those facts into an unsupported claim that every operation fits Apple's industry-standard category. No ECCN, CCATS or `ITSAppUsesNonExemptEncryption` value has been assigned by this inventory. The [current BIS regulation](https://www.bis.gov/regulations/ear/742) distinguishes publicly available encryption source/object-code conditions and non-standard cryptography; the [ENC provisions](https://www.bis.gov/regulations/ear/740) have separate classification/reporting rules. Public GitHub hosting alone is not the completed analysis. No regulatory notification has been sent.
+
+Reproduce the evidence without network access:
+
+```sh
+python3 apple/scripts/inventory-release-crypto.py --output docs/RELEASE_CRYPTO_INVENTORY.json
+```
+
 ## Remaining technical acceptance
 
 The production-identity archives and local App Store exports pass signature/resource checks and package analysis. Apple upload/server validation has not been attempted. TestFlight installation, physical iPhone/M1 and Intel Mac coverage, actual English/Arabic translation execution and disconnected cold launch remain distinct from the simulator and local Mac results. See [VALIDATION](VALIDATION.md). No app has been represented as approved or live.

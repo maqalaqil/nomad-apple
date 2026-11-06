@@ -19,3 +19,9 @@ jobs:
         run: |
           python3 apple/scripts/generate-project.py
           plutil -lint apple/NomadApple.xcodeproj/project.pbxproj
+      - name: Check release review utilities
+        run: |
+          python3 -m py_compile apple/scripts/verify-release.py apple/scripts/inventory-release-crypto.py
+          python3 apple/scripts/verify-release.py --help
+          python3 apple/scripts/inventory-release-crypto.py --help
+          python3 -m json.tool docs/RELEASE_CRYPTO_INVENTORY.json > /dev/null

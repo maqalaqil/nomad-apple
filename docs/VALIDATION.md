@@ -91,3 +91,32 @@ Initial local App Store exports obtained Cloud Managed distribution signing and 
 Final packages are retained locally under `artifacts/app-store/iOS-1.0-9-verified` and `artifacts/app-store/macOS-1.0-9-verified`, with checksum/verification records. Earlier exports without the `-verified` suffix contain the superseded source-packaging issue and must not be uploaded. No binary has been uploaded to Apple or published on GitHub.
 
 [CI for the final packaging correction](https://github.com/maqalaqil/nomad-apple/actions/runs/42240549064) also passed portable core tests and project generation. Distribution licensing, provider/privacy declarations, export classification and physical/TestFlight acceptance remain open.
+
+## Repeatable local release checks — 6 November 2026
+
+[verify-release.py](../apple/scripts/verify-release.py) now checks the production archives **and apps extracted from the actual verified IPA/PKG**, without installing or modifying them. The run passed for 1.0 (9): release identity, deep/strict signatures, Mac universal architecture and sandbox, distribution debugging disabled, llama dSYM UUIDs, exact policy/manifest/sample/notice bytes, package checksums, no package-analysis errors, and all 21 screenshot hashes/dimensions. Each of the four app copies passed the five web-tool inventory checks: CyberChef 134, IT Tools 286, Excalidraw 243, Maps 1,078 and Perseus 393 files. The script also rejected the known product-analysis errors in both superseded exports during a separate negative check.
+
+```sh
+python3 apple/scripts/verify-release.py \
+  --report artifacts/app-store/local-preflight-1.0-9.json
+```
+
+Run on macOS with Xcode tools and access to the system trust services; a restrictive automation sandbox can prevent certificate trust evaluation. The report is local and ignored by Git. The script accepts version/build/artifact-directory overrides, but the matching export checksum record and screenshot manifest must also exist. Exit success means local integrity checks passed, never permission to upload or Apple acceptance. It does not run a distribution app, contact App Store Connect, or submit declarations.
+
+The existing CyberChef WebKit smoke harness was additionally run against **the final Mac archive's resources**, not just the prepared source directory. Its 505-operation catalog loaded; Base64, SHA-256, reverse, gzip round trip, Jq WebAssembly and ROT13 produced expected outputs. Document and worker remote fetches were blocked; the native blob download matched expected bytes. The harness uses nonpersistent browser data and temporary original test content. It does not exercise every algorithm, an installed App Store application, physical iOS hardware, or a disconnected device restart.
+
+## Release acceptance handoff
+
+These remaining checks have not been marked passed. They should use an isolated test library and the exact eventual distribution build, preserving the user's existing documents.
+
+| Check | Procedure and acceptance result |
+| --- | --- |
+| Fresh install and upgrade | After distribution clearance, install through TestFlight on iPhone, M1 iPad and native Mac; verify the sample import/EPUB/tool path. Upgrade a test workspace containing notes, bookmarks and downloads; confirm preserved records and file hashes. Intel Mac execution needs separate hardware coverage. |
+| Prepared offline operation | Prepare small licensed ZIM, map and model fixtures plus both translation directions. Disconnect networking, force quit and reopen, then read/search an article, render local maps, generate local tokens and translate real text in both directions. Repeat after device restart. Record outputs, not just language readiness. |
+| Missing assets | In a fresh isolated library, attempt AI, translation and maps without content/models. The app must give an actionable preparation/import message without claiming assets are ready. |
+| Permissions and files | Deny camera/microphone when explicitly invoking their tools; cancel file pickers and exports. Verify graceful recovery and unchanged data. Exercise Files/Finder exports, native Mac vault authentication and selected-file sandbox access. |
+| Downloads and storage | Use small public fixtures: pause, relaunch, resume, interrupt networking and reject a checksum mismatch. Verify preserved verified payloads and disk-capacity rejection. Test iOS background completion separately from Mac reopen reconciliation. |
+| Backup and restore | Export an isolated workspace, verify files/checksums, restore it and confirm records after the required quit/reopen. General backups are unencrypted; vault recovery is separately encrypted. Never overwrite the user's production workspace as a test. |
+| Accessibility | Check VoiceOver labels/navigation, large text, keyboard focus and light/dark appearance on each supported platform. Screenshot acceptance does not establish accessibility. |
+
+TestFlight is the project's distribution-test step, not a claim that Apple mandates beta testing before App Review. Apple upload processing, final declarations and rights review remain prerequisites in the documented release sequence.

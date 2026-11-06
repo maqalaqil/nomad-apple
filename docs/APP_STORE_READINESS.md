@@ -8,6 +8,8 @@ The subtitle is “Offline knowledge & local AI,” categories are Reference and
 
 Version **1.0 build 9** includes the original sample library, offline third-party notices and adaptive EPUB controls. Its simulator and isolated native Mac Release builds passed. Final production-identity archives and Cloud Managed distribution exports also passed local signature/resource checks, and both package-analysis reports are clear after correcting the build-source packaging. See [VALIDATION](VALIDATION.md). No server-side upload validation, TestFlight or App Review result is claimed.
 
+The follow-up [local release checker](../apple/scripts/verify-release.py) passes against both archives, both extracted final packages and the 21 screenshots. The [privacy declaration worksheet](PRIVACY_AUDIT.md#declaration-worksheet--6-november-2026), [pinned encryption inventory](RELEASE_CRYPTO_INVENTORY.json), and [device acceptance handoff](VALIDATION.md#release-acceptance-handoff) are prepared. These evidence packages narrow the remaining work; they do not close the distribution gates below. Authorized licensing inquiries are recorded in [DISTRIBUTION_REVIEW](DISTRIBUTION_REVIEW.md).
+
 ## Release blockers
 
 | Gap | Evidence in this source tree | Required result |
