@@ -91,3 +91,15 @@ Test harnesses and dependency pins: [Tests](Tests/README.md), [native dependenci
 ## Distribution
 
 The source repository is public, but no distribution-signed iOS or macOS app or App Store release is provided. TestFlight and App Store publication are blocked on the [release gates](../docs/APP_STORE_READINESS.md), including license compatibility. Development signing and beta expiry must not be mistaken for permanent offline distribution.
+
+## Release packaging
+
+The shared project includes original iOS/macOS app icons, a required-reason privacy manifest, and an offline privacy policy. Release archives also retain the pinned llama framework’s matching dSYM. These packaging changes do not clear distribution licensing or complete the App Store privacy questionnaire.
+
+To configure an existing registered identity without committing signing settings:
+
+```sh
+python3 apple/scripts/generate-project.py --team-id YOURTEAMID --bundle-id your.registered.identifier
+```
+
+Use the existing installed identifier for an upgrade. The flags are optional; regeneration preserves the current local selection. Choose Archive in Xcode with the NomadApple scheme and the appropriate generic iOS or Mac destination. Follow the [release gates](../docs/APP_STORE_READINESS.md) before export/upload.

@@ -1,7 +1,7 @@
 # Offline Perseus renderer
 
 This is the complete pinned upstream Perseus front end, integrated with the
-official Kolibri migration, scoring, numeric-answer normalization, math renderer,
+official Kolibri migration, scoring, numeric-answer normalization, a local MathJax adapter,
 and mobile math keypad. Assessment JSON and all question images/Graphie pairs
 come from the user's imported `.perseus` exercise package. No example curriculum
 is installed by this builder.
@@ -38,7 +38,9 @@ also has a restrictive CSP.
   <https://github.com/learningequality/kolibri/tree/da32925bce3cd216c4c5c0ecb7429314926f50c5/kolibri/plugins/perseus_viewer>
 - `@khanacademy/perseus` 78.2.0, `perseus-core` 28.2.0,
   `perseus-score` 8.11.7, `math-input` 26.4.37, `keypad-context` 3.2.65,
-  `mathjax-renderer` 3.0.0, MathJax 3.2.2, React 18.2.0.
+  the independently authored `@nomad-apple/mathjax-adapter`, MathJax 3.2.2,
+  Speech Rule Engine 4.1.5, React 18.2.0. The legacy renderer import name is
+  resolved to the local adapter; its upstream package is not downloaded.
 - Built-in protractor, graph-function icons, and MathJax fallback font have
   individually pinned URLs/hashes in `release.json`.
 - MathQuill v1.0.3 source archive and MPL notice are retained under
@@ -133,10 +135,14 @@ dependency tree (including a conservative superset of build dependencies).
 and original integration sources are retained, along with MathQuill's source
 archive/MPL notice.
 
-**Unresolved upstream notice:** the published `@khanacademy/mathjax-renderer`
-3.0.0 package has neither a license field nor a license file, and its declared
-`Khan/mathjax-renderer` repository was unavailable when checked. The same public
-package is used by the pinned Kolibri integration. No license is inferred for it.
-See `licenses/npm/UNRESOLVED-NOTICES.txt` and preserved package metadata. Review
-that upstream permission and asset/font notices before redistributing a release;
-this local build does not establish redistribution clearance.
+The upstream `@khanacademy/mathjax-renderer` 3.0.0 package had no published
+license notice. It has been replaced by an independently written Apache-2.0
+[adapter](../../../scripts/fetch-perseus/mathjax-adapter/README.md) over the
+licensed MathJax and speech-engine packages. The build checks the installed
+package's identity and esbuild inputs, and includes the adapter's own source
+and license under `licenses/NOMAD-math-adapter-source`.
+
+`licenses/npm/UNRESOLVED-NOTICES.txt` reports missing declared licenses/notices
+in the generated inventory. An empty report is an inventory check, not a legal
+clearance of every package, font or imported course. Other app-wide distribution
+gates remain in [licensing notes](../../../../docs/LICENSING.md).

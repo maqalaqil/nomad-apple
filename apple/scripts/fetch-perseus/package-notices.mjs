@@ -3,7 +3,7 @@ import path from 'node:path';
 
 // Keep original package metadata and every available license/notice file. The
 // inventory includes build-time packages too, so it is a conservative superset.
-export async function copyPackageNotices(modules, output) {
+export async function copyPackageNotices(modules, output, localPackages = []) {
   const inventory = [];
   const visited = new Set();
   async function packageDirectories(directory) {
@@ -43,6 +43,9 @@ export async function copyPackageNotices(modules, output) {
     await packageDirectories(path.join(directory,'node_modules'));
   }
   await packageDirectories(modules);
+  // npm local-directory dependencies are symlinks. Traverse only the explicit
+  // repository-owned paths supplied by the builder, not arbitrary link targets.
+  for (const directory of localPackages) await packageNotice(directory);
   await fs.writeFile(path.join(output,'inventory.json'),JSON.stringify(inventory,null,2)+'\n');
   const unresolved=inventory.filter(item=>!item.declaredLicense && !item.notices.length);
   await fs.writeFile(path.join(output,'UNRESOLVED-NOTICES.txt'),

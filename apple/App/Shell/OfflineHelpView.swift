@@ -29,6 +29,7 @@ struct OfflineHelpView: View {
             }
             Section("About this build") {
                 Text("NOMAD Apple provides native workflows and bundled local tools. Feature coverage and physical-device validation remain in progress. Linux containers, always-running servers, gated content entitlements, and unsupported radio protocols do not become available simply by opening a module.")
+                NavigationLink("Privacy & network use") { PrivacyPolicyView() }
             }
         }
         .navigationTitle("Offline help")

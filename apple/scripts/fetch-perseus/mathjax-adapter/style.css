@@ -1,0 +1,4 @@
+/* SPDX-License-Identifier: Apache-2.0 */
+mjx-container[jax="CHTML"] { max-width: 100%; }
+mjx-container mjx-mtext { font-family: inherit; }
+mjx-container mjx-assistive-mml { user-select: text; -webkit-user-select: text; }

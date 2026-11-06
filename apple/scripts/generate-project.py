@@ -1,9 +1,20 @@
 #!/usr/bin/env python3
 """Generate the iPhone, iPad, and native Mac project without an external generator."""
 from pathlib import Path
+import argparse
 import hashlib
 import json
+import re
 import subprocess
+
+parser = argparse.ArgumentParser(description=__doc__)
+parser.add_argument("--team-id", help="Apple development team; stored only in the ignored generated project")
+parser.add_argument("--bundle-id", help="Use the registered bundle identifier for this installation")
+args = parser.parse_args()
+if args.team_id and not re.fullmatch(r"[A-Z0-9]{10}", args.team_id):
+    parser.error("--team-id must contain 10 uppercase letters or digits")
+if args.bundle_id and not re.fullmatch(r"[A-Za-z0-9-]+(?:\.[A-Za-z0-9-]+)+", args.bundle_id):
+    parser.error("--bundle-id must be a reverse-DNS identifier")
 
 ROOT = Path(__file__).resolve().parents[1]
 PROJECT = ROOT / "NomadApple.xcodeproj"
@@ -30,6 +41,10 @@ if existing_project.exists():
                 personal_settings[key] = previous_settings[key]
     except (subprocess.CalledProcessError, json.JSONDecodeError, KeyError):
         raise SystemExit("Existing Xcode settings could not be read. Project generation stopped to preserve signing choices.")
+if args.team_id:
+    personal_settings["DEVELOPMENT_TEAM"] = args.team_id
+if args.bundle_id:
+    personal_settings["PRODUCT_BUNDLE_IDENTIFIER"] = args.bundle_id
 
 objects = []
 def add(key, contents):
@@ -61,14 +76,20 @@ add("resources-ref", "isa = PBXFileReference; lastKnownFileType = folder; path =
 add("resources-build", f"isa = PBXBuildFile; fileRef = {ident('resources-ref')};")
 add("catalogs-ref", "isa = PBXFileReference; lastKnownFileType = folder; path = Resources/Catalogs; sourceTree = SOURCE_ROOT;")
 add("catalogs-build", f"isa = PBXBuildFile; fileRef = {ident('catalogs-ref')};")
+add("assets-ref", "isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Resources/Assets.xcassets; sourceTree = SOURCE_ROOT;")
+add("assets-build", f"isa = PBXBuildFile; fileRef = {ident('assets-ref')};")
+add("privacy-ref", "isa = PBXFileReference; lastKnownFileType = text.xml; path = App/Platform/PrivacyInfo.xcprivacy; sourceTree = SOURCE_ROOT;")
+add("privacy-build", f"isa = PBXBuildFile; fileRef = {ident('privacy-ref')};")
+add("policy-ref", "isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = ../docs/PRIVACY_POLICY.md; sourceTree = SOURCE_ROOT;")
+add("policy-build", f"isa = PBXBuildFile; fileRef = {ident('policy-ref')};")
 add("product", "isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NomadApple.app; sourceTree = BUILT_PRODUCTS_DIR;")
 add("test-product", "isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = NomadAppleUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR;")
 add("products", f"isa = PBXGroup; children = ({ident('product')},{ident('test-product')},); name = Products; sourceTree = \"<group>\";")
-children = source_refs + test_refs + [ident("resources-ref"), ident("catalogs-ref"), ident("sqlite-ref"), ident("kiwix-ref"), ident("products")]
+children = source_refs + test_refs + [ident("resources-ref"), ident("catalogs-ref"), ident("assets-ref"), ident("privacy-ref"), ident("policy-ref"), ident("sqlite-ref"), ident("kiwix-ref"), ident("products")]
 add("main-group", f"isa = PBXGroup; children = ({','.join(children)},); sourceTree = \"<group>\";")
 add("sources", f"isa = PBXSourcesBuildPhase; buildActionMask = 2147483647; files = ({','.join(source_builds)},); runOnlyForDeploymentPostprocessing = 0;")
 add("frameworks", f"isa = PBXFrameworksBuildPhase; buildActionMask = 2147483647; files = ({ident('sqlite-build')},{ident('kiwix-build')},); runOnlyForDeploymentPostprocessing = 0;")
-add("resources", f"isa = PBXResourcesBuildPhase; buildActionMask = 2147483647; files = ({ident('resources-build')},{ident('catalogs-build')},); runOnlyForDeploymentPostprocessing = 0;")
+add("resources", f"isa = PBXResourcesBuildPhase; buildActionMask = 2147483647; files = ({ident('resources-build')},{ident('catalogs-build')},{ident('assets-build')},{ident('privacy-build')},{ident('policy-build')},); runOnlyForDeploymentPostprocessing = 0;")
 add("test-sources", f"isa = PBXSourcesBuildPhase; buildActionMask = 2147483647; files = ({','.join(test_builds)},); runOnlyForDeploymentPostprocessing = 0;")
 add("test-frameworks", "isa = PBXFrameworksBuildPhase; buildActionMask = 2147483647; files = (); runOnlyForDeploymentPostprocessing = 0;")
 embed_llama = '''set -eu
@@ -81,6 +102,12 @@ framework="$PROJECT_DIR/Vendor/build-apple/llama.xcframework/$slice/llama.framew
 destination="$TARGET_BUILD_DIR/$FRAMEWORKS_FOLDER_PATH"
 mkdir -p "$destination"
 /usr/bin/ditto "$framework" "$destination/llama.framework"
+# Preserve the vendor's matching symbols for archive validation and crash reports.
+symbols="$PROJECT_DIR/Vendor/build-apple/llama.xcframework/$slice/dSYMs/llama.dSYM"
+if [ "$ACTION" = "install" ] && [ -d "$symbols" ]; then
+    mkdir -p "$DWARF_DSYM_FOLDER_PATH"
+    /usr/bin/ditto "$symbols" "$DWARF_DSYM_FOLDER_PATH/llama.dSYM"
+fi
 if [ "${CODE_SIGNING_ALLOWED:-NO}" = "YES" ] && [ -n "${EXPANDED_CODE_SIGN_IDENTITY:-}" ]; then
     /usr/bin/codesign --force --sign "$EXPANDED_CODE_SIGN_IDENTITY" --preserve-metadata=identifier,entitlements "$destination/llama.framework"
 fi
@@ -107,7 +134,11 @@ target_settings = {
     "SUPPORTS_MACCATALYST": "NO", "CODE_SIGN_STYLE": "Automatic",
     "CODE_SIGN_ENTITLEMENTS[sdk=macosx*]": "App/Platform/NomadApple-macOS.entitlements",
     "ENABLE_APP_SANDBOX[sdk=macosx*]": "YES",
-    "CURRENT_PROJECT_VERSION": "7", "MARKETING_VERSION": "0.3.0",
+    "ASSETCATALOG_COMPILER_APPICON_NAME": "AppIcon",
+    "INFOPLIST_KEY_LSApplicationCategoryType[sdk=macosx*]": "public.app-category.reference",
+    "INFOPLIST_KEY_NSHumanReadableCopyright[sdk=macosx*]": "Copyright © 2026 NOMAD Apple contributors. Third-party works retain their respective copyrights.",
+    "SKIP_INSTALL": "NO",
+    "CURRENT_PROJECT_VERSION": "8", "MARKETING_VERSION": "0.3.0",
     "SWIFT_OBJC_BRIDGING_HEADER": "$(PROJECT_DIR)/App/Library/NomadZIM-Bridging-Header.h",
     "CLANG_CXX_LANGUAGE_STANDARD": "c++17", "OTHER_LDFLAGS": "$(inherited) -lc++ -lz -liconv",
     "HEADER_SEARCH_PATHS[sdk=iphoneos*]": "$(inherited) $(PROJECT_DIR)/Vendor/CoreKiwix.xcframework/ios-arm64/Headers",

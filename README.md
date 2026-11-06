@@ -47,6 +47,10 @@ The pinned llama framework has no iOS simulator slice; GGUF inference runs on ph
 
 **Not ready for submission.** Distribution licensing, privacy declarations, app identity/icon/store metadata, a signed Release archive, and offline/device acceptance are open gates. Apple Developer Program membership and App Store Connect access are required. The next distribution milestone is a compliant TestFlight build, followed by App Review—not a promise that the current preview will be approved. See [App Store readiness](docs/APP_STORE_READINESS.md).
 
+## Support and privacy
+
+For support or private privacy requests, email [maheralaqil1993@gmail.com](mailto:maheralaqil1993@gmail.com). Read the [privacy policy](docs/PRIVACY_POLICY.md). GitHub issues are public; do not attach private documents, passwords or recovery files. The policy is also bundled in the app under Offline help → Privacy & network use.
+
 ## License and provenance
 
 Native source authored for this project is provided under Apache-2.0; retained third-party files keep their own licenses. See [LICENSE](LICENSE), [NOTICE](NOTICE), [licensing notes](docs/LICENSING.md), [native dependency pins](apple/DEPENDENCIES.md) and [web-tool pins](apple/WEB_TOOLS.md).

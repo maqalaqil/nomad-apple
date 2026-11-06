@@ -10,7 +10,7 @@
     "@internationalized/number": "3.6.9",
     "@khanacademy/keypad-context": "3.2.65",
     "@khanacademy/math-input": "26.4.37",
-    "@khanacademy/mathjax-renderer": "3.0.0",
+    "@khanacademy/mathjax-renderer": "file:./mathjax-adapter",
     "@khanacademy/perseus": "78.2.0",
     "@khanacademy/perseus-core": "28.2.0",
     "@khanacademy/perseus-score": "8.11.7",

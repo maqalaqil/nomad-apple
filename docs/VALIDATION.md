@@ -55,3 +55,13 @@ swift test --package-path apple
 ```
 
 For app/UI tests, prepare dependencies and generate the project as described in the [build guide](../apple/README.md), then select an installed iPhone/iPad simulator or native Mac destination using [Tests](../apple/Tests/README.md). GGUF inference requires a compatible physical iPhone/iPad or Mac with the pinned framework. The repository's CI checks portable source; it does not certify physical offline operation.
+
+## Release packaging preparation — 5 November 2026
+
+The paid individual publishing team and App Store Connect access were verified, and iOS/macOS records were created. The existing installed bundle identifier is selected locally for upgrade continuity; personal team settings remain outside Git. No build has been uploaded to TestFlight or submitted for review.
+
+Version 0.3.0 build 8 adds original iOS/macOS icons, an offline policy view, a public support/privacy contact, required-reason API declarations, Mac category/copyright metadata and archived llama dSYMs. iOS and universal native Mac Release archives built with Apple Development signing. Deep/strict signature checks passed; both contained icons, privacy files and matching framework dSYM UUIDs. This is local archive verification, not App Store distribution signing or server-side validation.
+
+The unlicensed MathJax wrapper was replaced by an independently written Apache-2.0 adapter using pinned MathJax/Speech Rule Engine packages. Twenty-one real WebKit checks passed, covering math geometry, colors, chemistry, Arabic text, assistive MathML/spoken labels, macro isolation, malformed/oversized inputs and local-only resources. The full course renderer smoke test also passed original scoring, answer restoration, keypad edits, hints, local Graphie/fonts/speech maps, blocked HTTP and unsupported-item rejection. The rebuilt bundle passed 393-file integrity verification and has no packages lacking both a declared license and notice in its conservative npm inventory. That inventory result is not blanket binary-distribution clearance.
+
+All 34 portable core tests passed again. Final App Store collection/export declarations, GPL corresponding-source/distribution decisions, review materials and physical offline acceptance remain open as described in [release readiness](APP_STORE_READINESS.md).

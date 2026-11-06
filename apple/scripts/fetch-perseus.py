@@ -27,6 +27,9 @@ def hashes():
 def adapter_hashes():
     names = ["build.mjs", "main.jsx", "package-notices.mjs", "shims.js", "style.css", "package.json"]
     result = {name: sha(SOURCE / name) for name in names}
+    for path in sorted((SOURCE / "mathjax-adapter").rglob("*")):
+        if path.is_file():
+            result[str(path.relative_to(SOURCE))] = sha(path)
     result["../fetch-perseus.py"] = sha(Path(__file__).resolve())
     return result
 
