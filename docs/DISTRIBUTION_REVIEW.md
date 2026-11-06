@@ -12,9 +12,16 @@ The review must establish:
 2. The complete corresponding-source package and reproducible build materials to accompany the binary, including third-party sources and modifications.
 3. Whether the selected Apple distribution terms and any custom EULA satisfy those component licenses; if additional permission is needed, who can grant it and whether it covers these exact components and versions.
 
-A generic publisher approval to proceed cannot supply rights held by third-party copyright holders. No upstream license has been changed, and no external permission request has been sent.
+A generic publisher approval to proceed cannot supply rights held by third-party copyright holders. No upstream license has been changed.
 
-Draft inquiry for a qualified reviewer or relevant rights holder:
+With the publisher's authorization, licensing inquiries were posted on 6 November 2026:
+
+- [Kiwix/libkiwix #1408](https://github.com/kiwix/libkiwix/issues/1408): CoreKiwix and its bundled native components.
+- [IT Tools #1911](https://github.com/CorentinTh/it-tools/issues/1911): the bundled offline WebKit workspace.
+
+Both inquiries were verified open with no replies when this record was updated. Clarification remains pending; posting an inquiry does not grant permission or resolve the distribution review. No binary has been uploaded or submitted.
+
+Inquiry outline for a qualified reviewer or relevant rights holder:
 
 > NOMAD Apple is a free, source-available iPhone/iPad/native Mac application. We statically link the official CoreKiwix 14.2.1-2 framework and bundle IT Tools v2024.10.22-7ca5933 in a local WebKit workspace. Our source, dependency pins and notices are at https://github.com/maqalaqil/nomad-apple. We intend to provide complete corresponding source with the binary. Please identify the licensing/distribution conditions needed to distribute this combination through Apple's App Store, including any additional permission or EULA requirements. We are seeking confirmation of the applicable terms, not a relicensing of third-party contributions you do not control.
 
