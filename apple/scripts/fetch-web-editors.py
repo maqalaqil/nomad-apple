@@ -69,9 +69,15 @@ def install_it_tools(arguments):
         entry.write_text(html.replace("<head>", f'<head><meta http-equiv="Content-Security-Policy" content="{policy}">', 1))
         shutil.copyfile(source, staging / "it-tools-source.tar.gz")
         shutil.copyfile(license_file, staging / "LICENSE")
-        shutil.copyfile(pathlib.Path(__file__), staging / "nomad-build-integration.py")
+        # Keep build-only Python source available without presenting a loose
+        # script to Apple's executable/signature analyzer in the app bundle.
+        with zipfile.ZipFile(staging / "nomad-build-integration-source.zip", "w") as integration:
+            member = zipfile.ZipInfo("nomad-build-integration.py")
+            member.compress_type = zipfile.ZIP_DEFLATED
+            member.external_attr = 0o100644 << 16
+            integration.writestr(member, pathlib.Path(__file__).read_bytes())
         (staging / "NOMAD-INTEGRATION.txt").write_text(
-            "IT Tools upstream source is included in it-tools-source.tar.gz. The upstream release files are preserved, except index.html has an offline CSP; index.upstream.html is the original. nomad-build-integration.py documents the transformation. The native WebKit wrapper serves these files at a local custom origin to support existing absolute asset URLs and SPA routes. No upstream JavaScript has been removed or replaced.\n"
+            "IT Tools upstream source is included in it-tools-source.tar.gz. The upstream release files are preserved, except index.html has an offline CSP; index.upstream.html is the original. nomad-build-integration-source.zip contains the Python source documenting the transformation; it is build documentation, not an app runtime. The native WebKit wrapper serves these files at a local custom origin to support existing absolute asset URLs and SPA routes. No upstream JavaScript has been removed or replaced.\n"
         )
         files = {str(path.relative_to(staging)): digest(path) for path in sorted(staging.rglob("*")) if path.is_file()}
         (staging / "nomad-installation.json").write_text(json.dumps(dict(manifest, files=files), indent=2) + "\n")
