@@ -1,0 +1,136 @@
+{
+  "captured": "2026-11-05",
+  "version": "1.0",
+  "build": "9",
+  "app_store_connect_app": "6831442886",
+  "status": "All 21 screenshots accepted in the iPhone, iPad and macOS slots; seven per platform.",
+  "source": "Actual app UI; original bundled samples. No private user content. Mac screenshots include OS window chrome.",
+  "screenshots": [
+    {
+      "file": "ipad/01-command-center.png",
+      "width": 2752,
+      "height": 2064,
+      "sha256": "143e61ca874d6118528ceea824036f12c960334a67eff600303c9046fd7f8478"
+    },
+    {
+      "file": "ipad/02-library.png",
+      "width": 2752,
+      "height": 2064,
+      "sha256": "6284888ae561f6c8ad3620db8c94e24457e6c2ea4370a03e0a95b107ba3cc510"
+    },
+    {
+      "file": "ipad/03-offline-reading.png",
+      "width": 2752,
+      "height": 2064,
+      "sha256": "ed0269758864c9a12ed9b4561002933908ae6d8817dbeb5d016f8e26387c0991"
+    },
+    {
+      "file": "ipad/04-notes.png",
+      "width": 2752,
+      "height": 2064,
+      "sha256": "e4d52de98584e0dbf6cec9ea8f4462c2d037b266dd4dee60fd183e8e2e81daaf"
+    },
+    {
+      "file": "ipad/05-local-tools.png",
+      "width": 2752,
+      "height": 2064,
+      "sha256": "3a938fa34465e12a3da82fc8f29c7477df3159f972f1f971600bb449113ecfb2"
+    },
+    {
+      "file": "ipad/06-it-tools.png",
+      "width": 2752,
+      "height": 2064,
+      "sha256": "484a4018d086e52fcadbeac1736f6d57c3365c2b292c8f49222f8ccc81488f06"
+    },
+    {
+      "file": "ipad/07-modules.png",
+      "width": 2752,
+      "height": 2064,
+      "sha256": "062db4952414b86cbd45037a821696808c10795dc83603d282e99a272ca28484"
+    },
+    {
+      "file": "iphone/01-command-center.png",
+      "width": 1206,
+      "height": 2622,
+      "sha256": "05a634efcd9d9880eb3e552cb36b13a1ef7b5b7a606b932898ecd8a81f23e873"
+    },
+    {
+      "file": "iphone/02-library.png",
+      "width": 1206,
+      "height": 2622,
+      "sha256": "7b5d8b6d7ab91978c30f501a55093679477eccbb7730212bda8e13d096e1d679"
+    },
+    {
+      "file": "iphone/03-offline-reading.png",
+      "width": 1206,
+      "height": 2622,
+      "sha256": "85b3b242fd43b6f68aebc0179ba36f92117c2daa48fd9a6e6c246f8d9f4b4c1c"
+    },
+    {
+      "file": "iphone/04-knowledge-sources.png",
+      "width": 1206,
+      "height": 2622,
+      "sha256": "2cfe3c2d00b7dca4bb331b8b50f872afb910b4b5dbcfe036de067372e824d804"
+    },
+    {
+      "file": "iphone/05-local-tools.png",
+      "width": 1206,
+      "height": 2622,
+      "sha256": "07cc4357e4d5153772eeffebd438f4fa670843625a90ae52bee578266cbfa8dd"
+    },
+    {
+      "file": "iphone/06-it-tools.png",
+      "width": 1206,
+      "height": 2622,
+      "sha256": "b9693c4c4eb9c6d338d9de2590b07925638701d4b12570e9ecabcf06f8ee3d2c"
+    },
+    {
+      "file": "iphone/07-modules.png",
+      "width": 1206,
+      "height": 2622,
+      "sha256": "0e07752419fe43676344bd07821cc883efdc6cb96549203a01be0b67ad9e7e36"
+    },
+    {
+      "file": "mac/01-command-center.jpg",
+      "width": 1280,
+      "height": 800,
+      "sha256": "adc8194253a1720ac3494d55eb945087aefee1c88c0eb5a4da8ac1dd5942e365"
+    },
+    {
+      "file": "mac/02-library.jpg",
+      "width": 1280,
+      "height": 800,
+      "sha256": "5781d1c2579cd77e03ecf44a98c7f16de4080525efa5239ca3b46a0f78a148cd"
+    },
+    {
+      "file": "mac/03-local-ai.jpg",
+      "width": 1280,
+      "height": 800,
+      "sha256": "cb806af0c48cab11777a96b5b86458dddfbb549f5a9228dca1cac71d350f15f5"
+    },
+    {
+      "file": "mac/04-notes.jpg",
+      "width": 1280,
+      "height": 800,
+      "sha256": "0fb1132d0b579426264ec836cf51d041a267ac8806dbc552953e129ebf0997f8"
+    },
+    {
+      "file": "mac/05-local-tools.jpg",
+      "width": 1280,
+      "height": 800,
+      "sha256": "65da5fbc258f2d7b49acb52caad890f41561a69c83bd735a5dca81d35295d0da"
+    },
+    {
+      "file": "mac/06-it-tools.jpg",
+      "width": 1280,
+      "height": 800,
+      "sha256": "a97daa7babbfd0038a0cab316053d39f8b3fa59111b6c56910e41fc720dcf31e"
+    },
+    {
+      "file": "mac/07-modules.jpg",
+      "width": 1280,
+      "height": 800,
+      "sha256": "9c757834a5fc72bddfcb1a2ef51329f97ad429eff61a1abec0d2fb03fd5c0810"
+    }
+  ]
+}

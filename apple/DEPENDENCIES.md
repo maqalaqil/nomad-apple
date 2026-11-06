@@ -94,3 +94,7 @@ Books has EPUB/PDF import and browsing. EPUB reading includes a contents list, p
 `Tests/EPUBRegression/fixtures.py` creates original EPUB 2/3 fixtures and intentionally invalid archives without internet access. `Tests/EPUBRegression/main.swift` validates package navigation, compressed chapter/image reads, percent-encoded paths, unsafe paths, unsupported DRM, XML entity declarations, truncation, and resource CRC failures. The official W3C EPUB Community Group sample **Accessible EPUB 3**, release **20230704**, was separately downloaded to `/tmp` and opened successfully: 22 spine chapters, 47 navigation entries, and 258,333 CRC-verified chapter bytes. It is not bundled as user content. Sample source/license information: <https://github.com/IDPF/epub3-samples/releases/tag/20230704>, <https://github.com/IDPF/epub3-samples>.
 
 An offscreen native WebKit smoke run also rendered the original EPUB fixture's chapter text, local CSS, and SVG image with content JavaScript disabled. Reading-position gestures and device layout still need physical-iPad acceptance testing.
+
+## Source and offline notices
+
+The [native source inventory](../docs/NATIVE_SOURCE_INVENTORY.md) pins the upstream recipe and 19 verified source/build archives. `python3 apple/scripts/fetch-native-sources.py --verify` checks local source files. Offline help → Open-source licenses exposes the preserved native and bundled web-tool notices. This inventory does not resolve the [binary distribution licensing gates](../docs/LICENSING.md).

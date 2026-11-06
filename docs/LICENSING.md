@@ -8,8 +8,8 @@ The native project is an independent adaptation of [Crosstalk Solutions' Project
 
 | Component | License/provenance | Release action |
 | --- | --- | --- |
-| CoreKiwix 14.2.1-2, linked statically | Includes [libzim 9.7.0, GPL-2.0-or-later](https://github.com/openzim/libzim/blob/9.7.0/COPYING) and [libkiwix 14.2.1, GPL-3.0-or-later](https://github.com/kiwix/libkiwix/blob/14.2.1/COPYING). These are GPL, not LGPL. | Resolve the combined executable's license and App Store distribution terms; produce the complete dependency, notice, and corresponding-source inventory. |
-| llama.cpp v0.8.0 / b11960 | [MIT, pinned source](https://github.com/ggml-org/llama.cpp/blob/8642541b255bfb5dc39cd351a178be09013a55d6/LICENSE) | Include its copyright/license notices in distributed binaries. Model weights have separate licenses. |
+| CoreKiwix 14.2.1-2, linked statically | Includes [libzim 9.7.0, GPL-2.0-or-later](https://github.com/openzim/libzim/blob/9.7.0/COPYING) and [libkiwix 14.2.1, GPL-3.0-or-later](https://github.com/kiwix/libkiwix/blob/14.2.1/COPYING). These are GPL, not LGPL. | Resolve the combined executable's license and App Store distribution terms; publish the verified native source inventory with the eventual binary release. |
+| llama.cpp v0.8.0 / b11960 | [MIT, pinned source](https://github.com/ggml-org/llama.cpp/blob/8642541b255bfb5dc39cd351a178be09013a55d6/LICENSE) | Native and vendor notices are now bundled under Offline help → Open-source licenses. Model weights have separate licenses. |
 | CyberChef v11.5.0 | [Apache-2.0](https://github.com/gchq/CyberChef/blob/v11.5.0/LICENSE); fetched bundle retains generated dependency notices | Audit the full release bundle and preserve its notices. Encryption functionality also needs export-compliance assessment. |
 | IT Tools v2024.10.22-7ca5933 | [GPL-3.0](https://github.com/CorentinTh/it-tools/blob/v2024.10.22-7ca5933/LICENSE); fetch script includes pinned source and license | Preserve corresponding source and resolve applicable App Store terms before shipping it. Its separate WebKit bundle does not become Apache-licensed. |
 | Excalidraw | MIT; [preserved notice](../apple/scripts/fetch-web-editors/LICENSE.excalidraw) and locked npm dependencies | Preserve package, font, and asset notices. |
@@ -20,7 +20,7 @@ Details and checksums are in [native dependencies](../apple/DEPENDENCIES.md), [w
 
 ## Binary release gates
 
-1. Inventory every library actually included by the pinned [kiwix-build](https://github.com/kiwix/kiwix-build) recipe, including supporting search, compression, Unicode, and networking libraries. The merged XCFramework has no complete bundled license inventory in this integration.
+1. The [native source inventory](NATIVE_SOURCE_INVENTORY.md) now identifies the exact Kiwix release recipe, supporting dependencies, 19 verified source/build archives, and bundled notices. A source rebuild comparison and publication alongside a binary remain separate steps.
 2. Provide applicable notices and corresponding source, including build instructions and modifications. A URL to this Apache-licensed repository alone is not a complete GPL source-compliance plan for the statically linked executable.
 3. Resolve App Store terms against the GPL components, obtaining applicable additional permission or choosing replacement components if necessary. Publishing source does not by itself resolve restrictions on binary distribution. This audit has not established an App Store exception for the pinned dependencies; it does not claim that all GPL apps are categorically barred. See the [GPLv3 distribution conditions](https://www.gnu.org/licenses/gpl-3.0.html) and [Apple's standard EULA](https://www.apple.com/legal/internet-services/itunes/dev/stdeula/).
 4. Verify that the MathJax adapter source/provenance checks pass and review every generated npm/font/asset notice. Do not infer a license from a package being publicly downloadable or used by another project.

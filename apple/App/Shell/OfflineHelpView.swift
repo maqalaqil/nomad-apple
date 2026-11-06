@@ -25,11 +25,14 @@ struct OfflineHelpView: View {
             }
             Section("Check offline operation") {
                 Text("After preparation, test every needed module with Airplane Mode enabled and Wi-Fi off, then close and reopen the app. A successful online test does not prove network isolation. Radio messaging additionally requires compatible external hardware.")
-                Text("A free Apple ID development installation expires and needs renewal through Xcode. The installed development build is not a permanent offline distribution. Preserve backups before changing installation methods.")
+#if DEBUG
+                Text("A free Apple ID development installation expires and needs renewal through Xcode. Preserve backups before changing installation methods.")
+#endif
             }
             Section("About this build") {
-                Text("NOMAD Apple provides native workflows and bundled local tools. Feature coverage and physical-device validation remain in progress. Linux containers, always-running servers, gated content entitlements, and unsupported radio protocols do not become available simply by opening a module.")
+                Text("NOMAD Apple brings your library, notes, maps, local models and tools together on your device. Prepare the content you need while online. Available AI and translation features depend on your device, installed models and language support.")
                 NavigationLink("Privacy & network use") { PrivacyPolicyView() }
+                NavigationLink("Open-source licenses") { OpenSourceLicensesView() }
             }
         }
         .navigationTitle("Offline help")

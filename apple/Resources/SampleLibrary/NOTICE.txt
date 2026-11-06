@@ -1,0 +1,7 @@
+NOMAD Apple sample library
+Copyright 2026 NOMAD Apple contributors.
+
+These original sample texts and the EPUB are dedicated to the public domain under CC0 1.0 Universal.
+https://creativecommons.org/publicdomain/zero/1.0/
+
+The samples describe app preparation and a fictional weekend notebook. They contain no user records.

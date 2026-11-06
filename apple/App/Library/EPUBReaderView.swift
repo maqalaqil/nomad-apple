@@ -31,30 +31,37 @@ struct EPUBReaderView: View {
     @AppStorage("epub.reader.zoom") private var zoom = 1.0
     private var positionKey: String { "epub.position." + url.lastPathComponent }
 
+    private func readerToolbar(_ archive: EPUBArchive) -> some View {
+        HStack {
+            Button { showingContents = true } label: { Label("Contents", systemImage: "list.bullet") }
+            Button {
+                #if os(macOS)
+                showingFind.toggle()
+                #else
+                findRequest += 1
+                #endif
+            } label: { Label("Find in chapter", systemImage: "magnifyingglass") }
+            Menu {
+                Button("Bookmark this position", systemImage: "bookmark") { Task { await createMark(archive, edit: false) } }.disabled(!readerActions.ready)
+                Button("Add note at this position", systemImage: "square.and.pencil") { Task { await createMark(archive, edit: true) } }.disabled(!readerActions.ready)
+                Button("Bookmarks and notes", systemImage: "list.bullet.rectangle") { showingMarks = true }
+            } label: { Label("Reading marks", systemImage: "bookmark") }
+            Spacer()
+            Menu {
+                ForEach([0.85, 1.0, 1.15, 1.3, 1.5, 1.75], id: \.self) { value in
+                    Button("\(Int(value * 100))%") { zoom = value }
+                }
+            } label: { Label("Text size", systemImage: "textformat.size") }
+        }
+    }
+
     var body: some View {
         Group {
             if let archive, let selected {
                 VStack(spacing: 0) {
-                    HStack {
-                        Button { showingContents = true } label: { Label("Contents", systemImage: "list.bullet") }
-                        Button {
-                            #if os(macOS)
-                            showingFind.toggle()
-                            #else
-                            findRequest += 1
-                            #endif
-                        } label: { Label("Find in chapter", systemImage: "magnifyingglass") }
-                        Menu {
-                            Button("Bookmark this position", systemImage: "bookmark") { Task { await createMark(archive, edit: false) } }.disabled(!readerActions.ready)
-                            Button("Add note at this position", systemImage: "square.and.pencil") { Task { await createMark(archive, edit: true) } }.disabled(!readerActions.ready)
-                            Button("Bookmarks and notes", systemImage: "list.bullet.rectangle") { showingMarks = true }
-                        } label: { Label("Reading marks", systemImage: "bookmark") }
-                        Spacer()
-                        Menu {
-                            ForEach([0.85, 1.0, 1.15, 1.3, 1.5, 1.75], id: \.self) { value in
-                                Button("\(Int(value * 100))%") { zoom = value }
-                            }
-                        } label: { Label("Text size", systemImage: "textformat.size") }
+                    ViewThatFits(in: .horizontal) {
+                        readerToolbar(archive).fixedSize(horizontal: true, vertical: false)
+                        readerToolbar(archive).labelStyle(.iconOnly)
                     }.padding()
                     #if os(macOS)
                     if showingFind {

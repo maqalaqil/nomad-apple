@@ -76,6 +76,9 @@ add("resources-ref", "isa = PBXFileReference; lastKnownFileType = folder; path =
 add("resources-build", f"isa = PBXBuildFile; fileRef = {ident('resources-ref')};")
 add("catalogs-ref", "isa = PBXFileReference; lastKnownFileType = folder; path = Resources/Catalogs; sourceTree = SOURCE_ROOT;")
 add("catalogs-build", f"isa = PBXBuildFile; fileRef = {ident('catalogs-ref')};")
+for folder in ["SampleLibrary", "ThirdPartyLicenses"]:
+    add(folder + "-ref", f"isa = PBXFileReference; lastKnownFileType = folder; path = Resources/{folder}; sourceTree = SOURCE_ROOT;")
+    add(folder + "-build", f"isa = PBXBuildFile; fileRef = {ident(folder + '-ref')};")
 add("assets-ref", "isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Resources/Assets.xcassets; sourceTree = SOURCE_ROOT;")
 add("assets-build", f"isa = PBXBuildFile; fileRef = {ident('assets-ref')};")
 add("privacy-ref", "isa = PBXFileReference; lastKnownFileType = text.xml; path = App/Platform/PrivacyInfo.xcprivacy; sourceTree = SOURCE_ROOT;")
@@ -85,11 +88,11 @@ add("policy-build", f"isa = PBXBuildFile; fileRef = {ident('policy-ref')};")
 add("product", "isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NomadApple.app; sourceTree = BUILT_PRODUCTS_DIR;")
 add("test-product", "isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = NomadAppleUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR;")
 add("products", f"isa = PBXGroup; children = ({ident('product')},{ident('test-product')},); name = Products; sourceTree = \"<group>\";")
-children = source_refs + test_refs + [ident("resources-ref"), ident("catalogs-ref"), ident("assets-ref"), ident("privacy-ref"), ident("policy-ref"), ident("sqlite-ref"), ident("kiwix-ref"), ident("products")]
+children = source_refs + test_refs + [ident("SampleLibrary-ref"), ident("ThirdPartyLicenses-ref"), ident("resources-ref"), ident("catalogs-ref"), ident("assets-ref"), ident("privacy-ref"), ident("policy-ref"), ident("sqlite-ref"), ident("kiwix-ref"), ident("products")]
 add("main-group", f"isa = PBXGroup; children = ({','.join(children)},); sourceTree = \"<group>\";")
 add("sources", f"isa = PBXSourcesBuildPhase; buildActionMask = 2147483647; files = ({','.join(source_builds)},); runOnlyForDeploymentPostprocessing = 0;")
 add("frameworks", f"isa = PBXFrameworksBuildPhase; buildActionMask = 2147483647; files = ({ident('sqlite-build')},{ident('kiwix-build')},); runOnlyForDeploymentPostprocessing = 0;")
-add("resources", f"isa = PBXResourcesBuildPhase; buildActionMask = 2147483647; files = ({ident('resources-build')},{ident('catalogs-build')},{ident('assets-build')},{ident('privacy-build')},{ident('policy-build')},); runOnlyForDeploymentPostprocessing = 0;")
+add("resources", f"isa = PBXResourcesBuildPhase; buildActionMask = 2147483647; files = ({ident('SampleLibrary-build')},{ident('ThirdPartyLicenses-build')},{ident('resources-build')},{ident('catalogs-build')},{ident('assets-build')},{ident('privacy-build')},{ident('policy-build')},); runOnlyForDeploymentPostprocessing = 0;")
 add("test-sources", f"isa = PBXSourcesBuildPhase; buildActionMask = 2147483647; files = ({','.join(test_builds)},); runOnlyForDeploymentPostprocessing = 0;")
 add("test-frameworks", "isa = PBXFrameworksBuildPhase; buildActionMask = 2147483647; files = (); runOnlyForDeploymentPostprocessing = 0;")
 embed_llama = '''set -eu
@@ -138,7 +141,7 @@ target_settings = {
     "INFOPLIST_KEY_LSApplicationCategoryType[sdk=macosx*]": "public.app-category.reference",
     "INFOPLIST_KEY_NSHumanReadableCopyright[sdk=macosx*]": "Copyright © 2026 NOMAD Apple contributors. Third-party works retain their respective copyrights.",
     "SKIP_INSTALL": "NO",
-    "CURRENT_PROJECT_VERSION": "8", "MARKETING_VERSION": "0.3.0",
+    "CURRENT_PROJECT_VERSION": "9", "MARKETING_VERSION": "1.0",
     "SWIFT_OBJC_BRIDGING_HEADER": "$(PROJECT_DIR)/App/Library/NomadZIM-Bridging-Header.h",
     "CLANG_CXX_LANGUAGE_STANDARD": "c++17", "OTHER_LDFLAGS": "$(inherited) -lc++ -lz -liconv",
     "HEADER_SEARCH_PATHS[sdk=iphoneos*]": "$(inherited) $(PROJECT_DIR)/Vendor/CoreKiwix.xcframework/ios-arm64/Headers",

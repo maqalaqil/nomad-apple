@@ -37,8 +37,19 @@ struct LibraryView: View {
             }
             if query.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty {
                 if store.documents.isEmpty {
-                    ContentUnavailableView("Your offline library", systemImage: "books.vertical",
-                        description: Text("Import PDFs, text, or Markdown to read and search locally. Other files can be stored for later use."))
+                    ContentUnavailableView {
+                        Label("Your offline library", systemImage: "books.vertical")
+                    } description: {
+                        Text("Import books, PDFs, text, or Markdown to read locally, or explore the included samples.")
+                    } actions: {
+                        Button("Try sample library", systemImage: "books.vertical") {
+                            Task { await importSamples() }
+                        }
+                        .disabled(importProgress != nil)
+                        .accessibilityIdentifier("library.importSamples")
+                        .labelStyle(.titleAndIcon)
+                        .buttonStyle(.borderedProminent)
+                    }
                 } else {
                     Section("\(store.documents.count) saved files") {
                         ForEach(store.documents) { document in
@@ -104,6 +115,7 @@ struct LibraryView: View {
         }
         .sheet(item: $selectedDocument) { document in
             DocumentPreview(document: document, url: store.fileURL(for: document))
+                .presentationSizing(.page)
         }
         .sheet(item: $inspecting) { document in LibraryMetadataView(store: store, document: document) }
         .confirmationDialog("Delete this local copy?", isPresented: $showingDeleteConfirmation, titleVisibility: .visible) {
@@ -121,6 +133,23 @@ struct LibraryView: View {
         .alert("Library error", isPresented: Binding(get: { errorMessage != nil }, set: { if !$0 { errorMessage = nil } })) {
             Button("OK", role: .cancel) { errorMessage = nil }
         } message: { Text(errorMessage ?? "") }
+    }
+
+    private func importSamples() async {
+        let names = ["A library that travels.txt", "Weekend notebook.txt", "A Library That Travels.epub"]
+        let urls = names.compactMap { Bundle.main.url(forResource: $0, withExtension: nil, subdirectory: "SampleLibrary") }
+        guard urls.count == names.count else {
+            errorMessage = "The sample library is missing from this installation. You can still import your own files."
+            return
+        }
+        var failures: [String] = []
+        for (index, url) in urls.enumerated() {
+            importProgress = "Preparing sample \(index + 1) of \(urls.count)"
+            do { try await store.importFile(url) }
+            catch { failures.append("\(url.lastPathComponent): \(error.localizedDescription)") }
+        }
+        importProgress = nil
+        if !failures.isEmpty { errorMessage = failures.joined(separator: "\n\n") }
     }
 
     private func requestDelete(_ document: LibraryDocument) {

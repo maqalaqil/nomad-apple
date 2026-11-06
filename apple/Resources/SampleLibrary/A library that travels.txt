@@ -1,0 +1,17 @@
+A library that travels with you
+
+A small collection can be more useful than a large one you have never opened. Start with a book you enjoy, a reference you use often, and notes that belong to you.
+
+Before you disconnect
+
+1. Download or import the files you want to keep.
+2. Open each file and check the pages or chapters you need.
+3. Prepare a compatible AI model if you plan to use local inference.
+4. Test the workflows you need with networking turned off.
+5. Keep a separate backup of your own work.
+
+A place for your ideas
+
+Save a question while you read. Add a note when you discover something useful. Bring your documents together around a project, a place, or a subject you want to learn.
+
+NOMAD Apple review sample. Original text by NOMAD Apple contributors, 2026. CC0 1.0. No external images or personal information.
