@@ -1,6 +1,6 @@
 # Outstanding distribution review
 
-Prepared for NOMAD Apple 1.0 (9), 5 November 2026. This is a factual review brief, not a claim of legal clearance. The App Store records and screenshots are prepared; no binary has been uploaded or submitted.
+Updated for NOMAD Apple 1.0 (9), 6 November 2026. This is a factual review brief, not a claim of legal clearance. The App Store records and screenshots are prepared; no binary has been uploaded or submitted.
 
 ## GPL components and Store terms
 
@@ -30,4 +30,4 @@ Vault recovery uses Apple's AES-GCM and PBKDF2. Bundled CyberChef and IT Tools p
 
 ## Remaining technical acceptance
 
-The final production-identity archives need distribution export/server validation. TestFlight installation, physical iPhone/M1 and Intel Mac coverage, actual English/Arabic translation execution and disconnected cold launch remain distinct from the simulator and local Mac results. See [VALIDATION](VALIDATION.md). No app has been represented as approved or live.
+The production-identity archives and local App Store exports pass signature/resource checks and package analysis. Apple upload/server validation has not been attempted. TestFlight installation, physical iPhone/M1 and Intel Mac coverage, actual English/Arabic translation execution and disconnected cold launch remain distinct from the simulator and local Mac results. See [VALIDATION](VALIDATION.md). No app has been represented as approved or live.
