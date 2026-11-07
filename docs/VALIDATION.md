@@ -58,7 +58,7 @@ For app/UI tests, prepare dependencies and generate the project as described in 
 
 ## Release packaging preparation — 5 November 2026
 
-The paid individual publishing team and App Store Connect access were verified, and iOS/macOS records were created. The existing installed bundle identifier is selected locally for upgrade continuity; personal team settings remain outside Git. No build has been uploaded to TestFlight or submitted for review.
+The paid individual publishing team and App Store Connect access were verified, and iOS/macOS records were created. The existing installed bundle identifier is selected locally for upgrade continuity; personal team settings remain outside Git. At this stage no build had been uploaded to TestFlight or submitted for review; later upload results are recorded below.
 
 Version 0.3.0 build 8 adds original iOS/macOS icons, an offline policy view, a public support/privacy contact, required-reason API declarations, Mac category/copyright metadata and archived llama dSYMs. iOS and universal native Mac Release archives built with Apple Development signing. Deep/strict signature checks passed; both contained icons, privacy files and matching framework dSYM UUIDs. This is local archive verification, not App Store distribution signing or server-side validation.
 
@@ -88,7 +88,7 @@ Initial local App Store exports obtained Cloud Managed distribution signing and 
 
 [CI for the screenshot/sample/notices commit](https://github.com/maqalaqil/nomad-apple/actions/runs/42172360310) passed. This is not App Review approval, a completed privacy label or permission to distribute the GPL combination through the Store.
 
-Final packages are retained locally under `artifacts/app-store/iOS-1.0-9-verified` and `artifacts/app-store/macOS-1.0-9-verified`, with checksum/verification records. Earlier exports without the `-verified` suffix contain the superseded source-packaging issue and must not be uploaded. No binary has been uploaded to Apple or published on GitHub.
+Final packages are retained locally under `artifacts/app-store/iOS-1.0-9-verified` and `artifacts/app-store/macOS-1.0-9-verified`, with checksum/verification records. Earlier exports without the `-verified` suffix contain the superseded source-packaging issue and must not be uploaded. At this stage no binary had been uploaded to Apple or published on GitHub; subsequent private Apple uploads are recorded below.
 
 [CI for the final packaging correction](https://github.com/maqalaqil/nomad-apple/actions/runs/42240549064) also passed portable core tests and project generation. Distribution licensing, provider/privacy declarations, export classification and physical/TestFlight acceptance remain open.
 
@@ -120,3 +120,13 @@ These remaining checks have not been marked passed. They should use an isolated 
 | Accessibility | Check VoiceOver labels/navigation, large text, keyboard focus and light/dark appearance on each supported platform. Screenshot acceptance does not establish accessibility. |
 
 TestFlight is the project's distribution-test step, not a claim that Apple mandates beta testing before App Review. Apple upload processing, final declarations and rights review remain prerequisites in the documented release sequence.
+
+## Private Apple uploads — 6 November 2026
+
+Following the publisher's request to proceed with release work, both corrected production archives were exported with `destination=upload`, automatic signing on the selected individual team, symbols included and automatic build-number changes disabled. Xcode reported **Upload succeeded** and **EXPORT SUCCEEDED** for both iOS and macOS. This was a private technical-processing step; no testers were invited and no app was submitted for review or released.
+
+App Store Connect initially showed iOS 1.0 (9) as Processing. It subsequently became selectable with **Missing Compliance** and was saved in the iOS release draft. The Mac build also processed with **Missing Compliance** and was saved in its release draft. TestFlight's description, feedback email, public policy/marketing links and original sample-based review instructions were saved. Private review contact details remain only in App Store Connect.
+
+The iOS and macOS **Add for Review** actions each returned **Unable to Add for Review** with three specific requirements: Content Rights Information, build export-compliance information and App Privacy answers. Manual release remains selected. No licensing, collection, exemption or rights certification was supplied to bypass these requirements. Upload acceptance does not establish App Review approval, useful TestFlight execution, or distribution clearance.
+
+Local upload logs are retained under `artifacts/app-store/upload-iOS-1.0-9.log` and `upload-macOS-1.0-9.log`. Export checksum records describe the earlier local exports; the upload command repackages the archive, so their hashes are not asserted to identify the transmitted package. The public repository contains source and status documentation, not the app binaries.

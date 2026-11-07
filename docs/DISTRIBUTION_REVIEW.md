@@ -1,6 +1,6 @@
 # Outstanding distribution review
 
-Updated for NOMAD Apple 1.0 (9), 6 November 2026. This is a factual review brief, not a claim of legal clearance. The App Store records and screenshots are prepared; no binary has been uploaded or submitted.
+Updated for NOMAD Apple 1.0 (9), 6 November 2026. This is a factual review brief, not a claim of legal clearance. Both platform builds have been uploaded for private App Store Connect processing. Neither has been submitted for App Review or released; open declarations and distribution terms remain unresolved.
 
 ## GPL components and Store terms
 
@@ -19,7 +19,7 @@ With the publisher's authorization, licensing inquiries were posted on 6 Novembe
 - [Kiwix/libkiwix #1408](https://github.com/kiwix/libkiwix/issues/1408): CoreKiwix and its bundled native components.
 - [IT Tools #1911](https://github.com/CorentinTh/it-tools/issues/1911): the bundled offline WebKit workspace.
 
-Both inquiries were verified open with no replies when this record was updated. Clarification remains pending; posting an inquiry does not grant permission or resolve the distribution review. No binary has been uploaded or submitted.
+Both inquiries remain open. A [Kiwix reply](https://github.com/kiwix/libkiwix/issues/1408#issuecomment-6690717566) mentions a User-Agent observed in logs but does not answer the licensing questions or grant additional permission. The mentioned User-Agent has not been attributed to this build. IT Tools has no reply as of this check. Clarification remains pending; posting an inquiry does not grant permission or resolve the distribution review.
 
 Inquiry outline for a qualified reviewer or relevant rights holder:
 
@@ -51,4 +51,4 @@ python3 apple/scripts/inventory-release-crypto.py --output docs/RELEASE_CRYPTO_I
 
 ## Remaining technical acceptance
 
-The production-identity archives and local App Store exports pass signature/resource checks and package analysis. Apple upload/server validation has not been attempted. TestFlight installation, physical iPhone/M1 and Intel Mac coverage, actual English/Arabic translation execution and disconnected cold launch remain distinct from the simulator and local Mac results. See [VALIDATION](VALIDATION.md). No app has been represented as approved or live.
+The production-identity archives and local App Store exports pass signature/resource checks and package analysis. Apple accepted both uploads. Both iOS and macOS build 9 processed and are selected in their drafts with Missing Compliance. Apple's iOS and macOS submission validation explicitly requires Content Rights Information, export-compliance information and App Privacy answers. TestFlight installation, physical iPhone/M1 and Intel Mac coverage, actual English/Arabic translation execution and disconnected cold launch remain distinct from the simulator and local Mac results. See [VALIDATION](VALIDATION.md). No app has been represented as approved or live.
