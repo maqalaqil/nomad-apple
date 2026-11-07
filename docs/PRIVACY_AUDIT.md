@@ -101,7 +101,7 @@ Candidate mapping for verification:
 
 The App Store Connect questionnaire was inspected through the collection and category screens. No categories, purposes, linkage or tracking answers were saved or published; Publish remains disabled. This document is the draft. The available evidence does not support Data Not Collected, and guessing all possible categories would not produce an accurate label. The bundled manifest and app binaries are unchanged.
 
-### Provider clarification requests — partially sent
+### Provider clarification requests — sent
 
 NOMAD Apple is a free offline reader/tool app. Its native HTTPS downloader makes user-initiated, unauthenticated catalog/download requests, disables cookie/credential storage, and sends normal request metadata; it does not send assistant prompts or local document contents to these endpoints. We are preparing Apple's App Privacy label. For the endpoints below, please identify retained request fields (including IP/hash, User-Agent, path/query/search terms, country and timing), retention, uses, linkage to a user/device/profile, sharing for advertising or with data brokers, and the applicable published policy. Please include redirect/CDN handling. We need actual practices, not a statement about the app's local storage.
 
@@ -112,4 +112,4 @@ NOMAD Apple is a free offline reader/tool app. Its native HTTPS downloader makes
 
 With the publisher's authorization, the [Source Cooperative inquiry was posted and verified](https://github.com/source-cooperative/source.coop/issues/360#issuecomment-6703193168) on 6 November 2026. It asks about deployed logging, retention, country/IP-hash analytics, linkage, downstream handling and the currently applicable policy. The maintainer's newer draft comment predates this inquiry and is not a response to it or proof of deployed changes.
 
-The Kiwix (`hello@kiwix.org`), Hugging Face (`privacy@huggingface.co`) and GitHub (`dpo@github.com`) email requests are authorized and prepared but **not sent**. These addresses are published in the respective policies linked above. The signed-in browser is unavailable while the Mac is locked. No privacy label has been published; unresolved endpoint facts remain unresolved.
+The authorized Kiwix (`hello@kiwix.org`), Hugging Face (`privacy@huggingface.co`) and GitHub (`dpo@github.com`) inquiries were sent on **7 November 2026** from the public NOMAD support address. Each used the subject “Endpoint privacy clarification for NOMAD Apple download disclosures” and its endpoint-specific scope above. The recipients and bodies were checked before sending, and Gmail displayed “Message sent” for each. These addresses are published in the respective policies linked above. Sending is not evidence of a provider response or agreement. No privacy label has been published; unresolved endpoint facts remain unresolved.
