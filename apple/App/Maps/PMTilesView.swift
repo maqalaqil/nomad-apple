@@ -38,6 +38,9 @@ struct PMTilesView: View {
         }
         .navigationTitle("Offline Map Archives")
         .toolbar {
+            NavigationLink(destination: ContentCreditsView()) {
+                Label("Map data credits", systemImage: "info.circle")
+            }
             Button("Coordinates", systemImage: "mappin.and.ellipse") { adding = true }
             Button("Archives & Places", systemImage: "map") { managing = true }
             Button("Import", systemImage: "square.and.arrow.down") { importing = true }.disabled(store.importing)

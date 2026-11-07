@@ -33,6 +33,7 @@ struct OfflineHelpView: View {
                 Text("NOMAD Apple brings your library, notes, maps, local models and tools together on your device. Prepare the content you need while online. Available AI and translation features depend on your device, installed models and language support.")
                 NavigationLink("Privacy & network use") { PrivacyPolicyView() }
                 NavigationLink("Open-source licenses") { OpenSourceLicensesView() }
+                NavigationLink("Content credits") { ContentCreditsView() }
             }
         }
         .navigationTitle("Offline help")

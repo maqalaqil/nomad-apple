@@ -134,3 +134,9 @@ Local upload logs are retained under `artifacts/app-store/upload-iOS-1.0-9.log` 
 ## Submission recheck — 7 November 2026
 
 After Apple sign-in was restored, both platform drafts still showed version 1.0 build 9 with Missing Compliance and manual release. Add for Review was attempted separately for iOS and macOS; both returned Unable to Add for Review for Content Rights Information, export compliance and App Privacy. Neither platform entered review. The authorized encryption question was submitted through Apple Developer Support and its case-creation confirmation was verified. Case details are retained locally, not in this public repository. Provider privacy questions have also been sent; no answers or clearances are inferred from sending them. No binary, declaration or metadata was changed during this recheck.
+
+## Offline content credits — 7 November 2026
+
+The content-rights follow-up adds an offline Content credits view linked from Offline help, Content catalog and the map toolbar. It includes an explicit OSM copyright URL and the exact pinned Qwen Apache-2.0 license. This does not enable archive-supplied HTML or remote map requests. Existing software notices and all features remain present.
+
+Both fresh **iOS Simulator Release** and **native macOS Release** builds passed with code signing disabled. Project regeneration preserved local signing settings and its property list passed validation. The Qwen license in both built bundles matches the retrieved pinned license byte-for-byte (SHA-256 recorded in LICENSING.md). These are compile/resource checks; no new device, UI or distribution acceptance is claimed. Uploaded build 9 is unchanged and does not contain these additions. A later distribution build must be numbered, archived and verified separately. Local build logs are `artifacts/app-store/rights-ios-build.log` and `rights-mac-build.log`.

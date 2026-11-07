@@ -14,6 +14,8 @@ The follow-up [local release checker](../apple/scripts/verify-release.py) passes
 
 A tentative “both algorithm categories” questionnaire path prompted a **BIS CCATS attachment**, even with France excluded. This is not a definitive classification: Apple's published-functionality qualification was missed in the earlier assessment and is now addressed in the prepared [Apple clarification request](DISTRIBUTION_REVIEW.md#full-cipher-questionnaire-follow-up--6-november-2026). The [Source Cooperative privacy inquiry](https://github.com/source-cooperative/source.coop/issues/360#issuecomment-6703193168) is sent; the Kiwix, Hugging Face and GitHub inquiries were also sent on 7 November 2026 with Gmail confirmations. The Apple encryption clarification was also submitted on 7 November 2026, and Apple confirmed case creation; its response is pending. No declarations were saved or published. See the [privacy follow-up](PRIVACY_AUDIT.md#provider-source-evidence-and-label-follow-up--6-november-2026).
 
+The [7 November content-rights audit](LICENSING.md#content-rights-evidence--7-november-2026) records specific reuse grants and adds offline attribution/model-license presentation in source. Those UI changes are not in uploaded build 9; a new distribution build is required before relying on them for submission. No content-rights or privacy declaration has been saved.
+
 ## Release blockers
 
 | Gap | Evidence in this source tree | Required result |

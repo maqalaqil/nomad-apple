@@ -161,6 +161,7 @@ struct CatalogDownloadsView: View {
             Section {
                 Text("Prepare Wikipedia, worldwide street maps and a small local AI model. The catalog works offline; new downloads need Wi-Fi. Verify content in its reader before disconnecting.").foregroundStyle(.secondary)
                 Text("Arabic/English and world-map metadata checked November 3, 2026. US regional catalog: NOMAD February 2026. File editions and source dates are shown below; links can change.").font(.caption).foregroundStyle(.secondary)
+                NavigationLink("Content licenses & attribution") { ContentCreditsView() }
                 Button("Prepare Arabic + English + worldwide maps", systemImage: "globe") { confirmCollection = true }.disabled(catalogError != nil || sections.isEmpty)
                 Text("Full-image Wikipedia editions plus the world street basemap total about 281 GB. Direct imports from Downloads avoid duplicate archive storage when supported; otherwise temporary copies need additional space. This does not include every Wikimedia media file, satellite imagery or navigation routing.").font(.footnote).foregroundStyle(.secondary)
             }
