@@ -81,3 +81,33 @@ This narrows the remaining decisions; it is not a submitted label. The exact pro
 [Apple's label definitions](https://developer.apple.com/app-store/app-privacy-details/) make retention and use material: IP-address categories depend on its actual use, and optional functionality alone does not satisfy the optional-disclosure conditions. The unresolved partner scope must distinguish integrated vendors from user-selected remote hosts and open-web navigation. Once that scope and endpoint behavior are established, map only evidenced categories, purposes and linkage. Keep “Data Not Collected” and “not linked” unselected until supported.
 
 Provider evidence checked for this worksheet: [Kiwix policy](https://get.kiwix.org/en/privacy-policy/), [Hugging Face policy](https://huggingface.co/privacy), [GitHub policy](https://docs.github.com/en/site-policy/privacy-policies/github-general-privacy-statement), and [Source Cooperative's policy discussion](https://github.com/source-cooperative/source.coop/issues/360). No provider has been contacted on the publisher's behalf as part of this privacy worksheet.
+
+
+## Provider source evidence and label follow-up — 6 November 2026
+
+Apple's [WWDC22 label guidance](https://developer.apple.com/videos/play/wwdc2022/10167/) explains that retained server-side activity can count as collection and maps IP-derived location to location. Its [DTS discussion of read-only GET requests](https://developer.apple.com/forums/thread/790810) specifically cautions that server-side IP/User-Agent logging still needs examination. A download-only implementation is therefore insufficient evidence for a no-collection label.
+
+Source Cooperative's [analytics change #153](https://github.com/source-cooperative/data.source.coop/pull/153) and current [src/analytics.rs](https://github.com/source-cooperative/data.source.coop/blob/main/src/analytics.rs) provide more concrete evidence than the unpublished policy alone. The retrieved file's Git blob is `662cb0eea495a717e89f39a58147c18e8e6f77cb`. Its event writer includes dataset/account path, requested object path, method, authenticated user ID (empty for anonymous requests), country, content type, hashed client IP, range, byte count, status and duration. It writes events to a configured analytics dataset. The account/product fields describe the requested dataset, not necessarily the downloader's account. Country comes from the edge header, not NOMAD's GPS. The IP hash supports distinct-client counting; hashing alone is not proof that data cannot be linked back to a person. The code is evidence of intended server behavior, not proof of the exact deployed version, configuration, retention period or all subsequent uses.
+
+Candidate mapping for verification:
+
+| Provider evidence | Candidate label category | Unresolved before publication |
+| --- | --- | --- |
+| Country derived from the request | Coarse Location | Confirm deployment, retention, purposes and linkage. This is not precise GPS collection. |
+| Hashed IP used for distinct-client counting | Identifiers, with exact identifier subtype to verify | Confirm the identifier's use and whether it is associated with a device, person or profile; do not promise anonymization. |
+| Requested file/path and range | Product Interaction or Other Usage Data, according to actual use | Confirm retained fields and how provider analytics uses them. |
+| Request duration, status and bytes | Performance/Other Diagnostic Data, according to actual use | Confirm whether the provider uses these to diagnose the app interaction or solely operates its infrastructure. |
+| Kiwix retained IP/User-Agent and Hugging Face/GitHub request metadata | Categories determined by actual use, potentially including Other Data Types | Confirm endpoint-specific practices and avoid importing unrelated account, billing, advertising or hosted-inference practices into this app's label. |
+
+The App Store Connect questionnaire was inspected through the collection and category screens. No categories, purposes, linkage or tracking answers were saved or published; Publish remains disabled. This document is the draft. The available evidence does not support Data Not Collected, and guessing all possible categories would not produce an accurate label. The bundled manifest and app binaries are unchanged.
+
+### Prepared provider clarification request — not sent
+
+NOMAD Apple is a free offline reader/tool app. Its native HTTPS downloader makes user-initiated, unauthenticated catalog/download requests, disables cookie/credential storage, and sends normal request metadata; it does not send assistant prompts or local document contents to these endpoints. We are preparing Apple's App Privacy label. For the endpoints below, please identify retained request fields (including IP/hash, User-Agent, path/query/search terms, country and timing), retention, uses, linkage to a user/device/profile, sharing for advertising or with data brokers, and the applicable published policy. Please include redirect/CDN handling. We need actual practices, not a statement about the app's local storage.
+
+- Kiwix: `library.kiwix.org` OPDS/search and `download.kiwix.org` ZIM downloads/mirrors.
+- Source Cooperative: `data.source.coop/protomaps/openstreetmap/v4.pmtiles`; specifically whether the published analytics event implementation and country/IP-hash fields are deployed, and the effective policy replacing the pending draft in issue 360.
+- Hugging Face: public unauthenticated model-file downloads and their delivery redirects, rather than accounts or hosted inference.
+- GitHub: public raw-file/repository download traffic used for regional maps, rather than account features or website advertising.
+
+No provider has been contacted as part of this follow-up. The source findings narrow the questions; they do not supply unknown deployed retention or usage facts.
