@@ -1,6 +1,6 @@
 # Outstanding distribution review
 
-Updated for NOMAD Apple 1.0 (9), 6 November 2026. This is a factual review brief, not a claim of legal clearance. Both platform builds have been uploaded for private App Store Connect processing. Neither has been submitted for App Review or released; open declarations and distribution terms remain unresolved.
+Updated for NOMAD Apple 1.0 (10), 7 November 2026. This is a factual review brief, not a claim of legal clearance. Build 10 archives and distribution packages are verified locally, with upload completion pending. Build 9 was uploaded for private App Store Connect processing. Neither has been submitted for App Review or released; open declarations and distribution terms remain unresolved.
 
 ## GPL components and Store terms
 

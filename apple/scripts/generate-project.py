@@ -141,7 +141,7 @@ target_settings = {
     "INFOPLIST_KEY_LSApplicationCategoryType[sdk=macosx*]": "public.app-category.reference",
     "INFOPLIST_KEY_NSHumanReadableCopyright[sdk=macosx*]": "Copyright © 2026 NOMAD Apple contributors. Third-party works retain their respective copyrights.",
     "SKIP_INSTALL": "NO",
-    "CURRENT_PROJECT_VERSION": "9", "MARKETING_VERSION": "1.0",
+    "CURRENT_PROJECT_VERSION": "10", "MARKETING_VERSION": "1.0",
     "SWIFT_OBJC_BRIDGING_HEADER": "$(PROJECT_DIR)/App/Library/NomadZIM-Bridging-Header.h",
     "CLANG_CXX_LANGUAGE_STANDARD": "c++17", "OTHER_LDFLAGS": "$(inherited) -lc++ -lz -liconv",
     "HEADER_SEARCH_PATHS[sdk=iphoneos*]": "$(inherited) $(PROJECT_DIR)/Vendor/CoreKiwix.xcframework/ios-arm64/Headers",

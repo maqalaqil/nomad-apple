@@ -88,7 +88,7 @@ def verify_app(app, platform, version, build, bundle_id, distribution=False):
     if distribution:
         require(not entitlements.get("get-task-allow", False), "Distribution app allows debugging")
         require(not entitlements.get("com.apple.security.get-task-allow", False), "Mac app allows debugging")
-    for folder in ("SampleLibrary", "ThirdPartyLicenses"):
+    for folder in ("SampleLibrary", "ThirdPartyLicenses", "Catalogs"):
         source = ROOT / "apple/Resources" / folder
         require(any(source.iterdir()), f"Empty {folder} source")
         for file in source.rglob("*"):
@@ -120,13 +120,13 @@ def verify_app(app, platform, version, build, bundle_id, distribution=False):
     require(not (resources / "WebTools/ITTools/nomad-build-integration.py").exists(),
             "Superseded loose IT Tools build script found")
     return {"signature": "deep/strict passed", "web_resource_files_verified": bundles,
-            "samples_notices_policy": "matched source", "privacy_manifest_inventory": manifests}
+            "samples_notices_catalogs_policy": "matched source", "privacy_manifest_inventory": manifests}
 
 
 def main():
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--version", default="1.0")
-    parser.add_argument("--build", default="9")
+    parser.add_argument("--build", default="10")
     parser.add_argument("--bundle-id", default="org.projectnomad.ipad.native")
     parser.add_argument("--artifacts", type=Path, default=ROOT / "artifacts")
     parser.add_argument("--report", type=Path, required=True)
@@ -168,7 +168,10 @@ def main():
             report["platforms"].append(entry)
             print(f"PASS: {platform} archive and exported package", flush=True)
         screenshots = json.loads((ROOT / "docs/APP_STORE_SCREENSHOTS.json").read_text())
-        require((screenshots["version"], screenshots["build"]) == (args.version, args.build), "Screenshot release mismatch")
+        require(screenshots["version"] == args.version
+                and args.build in screenshots.get("applicable_builds", [screenshots["build"]]),
+                "Screenshot release mismatch")
+        report["screenshot_capture_build"] = screenshots["build"]
         counts = {}
         for item in screenshots["screenshots"]:
             screenshot = store / "screenshots" / item["file"]

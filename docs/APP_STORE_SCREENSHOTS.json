@@ -2,6 +2,8 @@
   "captured": "2026-11-05",
   "version": "1.0",
   "build": "9",
+  "applicable_builds": ["9", "10"],
+  "reuse_note": "Build 10 adds content-credit links and a separate credits view; the seven existing screenshots per platform continue to depict available features. Images retain their original build 9 capture provenance.",
   "app_store_connect_app": "6831442886",
   "status": "All 21 screenshots accepted in the iPhone, iPad and macOS slots; seven per platform.",
   "source": "Actual app UI; original bundled samples. No private user content. Mac screenshots include OS window chrome.",
