@@ -1,6 +1,6 @@
 # Outstanding distribution review
 
-Updated for NOMAD Apple 1.0 (10), 7 November 2026. This is a factual review brief, not a claim of legal clearance. Build 10 archives and distribution packages are verified locally and both uploads succeeded. Both show Processing in App Store Connect; draft replacement is pending. Build 9 remains selected in the drafts. Neither has been submitted for App Review or released; open declarations and distribution terms remain unresolved.
+Updated for NOMAD Apple 1.0 (10), 7 November 2026. This is a factual review brief, not a claim of legal clearance. Build 10 archives and distribution packages are verified locally and both uploads succeeded. Mac build 10 processed and is saved in its draft with Missing Compliance. iOS build 10 is still Processing and its saved draft retains build 9. Neither has been submitted for App Review or released; open declarations and distribution terms remain unresolved.
 
 ## GPL components and Store terms
 
@@ -51,7 +51,7 @@ python3 apple/scripts/inventory-release-crypto.py --output docs/RELEASE_CRYPTO_I
 
 ## Remaining technical acceptance
 
-The production-identity archives and local App Store exports pass signature/resource checks and package analysis. Apple accepted both uploads. Both iOS and macOS build 9 processed and are selected in their drafts with Missing Compliance. Apple's iOS and macOS submission validation explicitly requires Content Rights Information, export-compliance information and App Privacy answers. TestFlight installation, physical iPhone/M1 and Intel Mac coverage, actual English/Arabic translation execution and disconnected cold launch remain distinct from the simulator and local Mac results. See [VALIDATION](VALIDATION.md). No app has been represented as approved or live.
+The production-identity archives and local App Store exports pass signature/resource checks and package analysis. Apple accepted both uploads. Mac build 10 is now selected with Missing Compliance; iOS build 10 is still Processing and its draft retains build 9. Apple's iOS and macOS submission validation explicitly requires Content Rights Information, export-compliance information and App Privacy answers. TestFlight installation, physical iPhone/M1 and Intel Mac coverage, actual English/Arabic translation execution and disconnected cold launch remain distinct from the simulator and local Mac results. See [VALIDATION](VALIDATION.md). No app has been represented as approved or live.
 
 
 ## Full-cipher questionnaire follow-up — 6 November 2026
